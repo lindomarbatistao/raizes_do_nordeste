@@ -13,6 +13,10 @@ class UsuarioViewSet(ModelViewSet):
     def get_permissions(self):
         if self.action == 'create':
             return [AllowAny()]
+
+        if self.request.user.is_staff:
+            return [IsAuthenticated()]
+
         return [IsAuthenticated()]
 
     def get_serializer_class(self):

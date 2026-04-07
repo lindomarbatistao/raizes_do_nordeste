@@ -6,6 +6,7 @@ import "./styles.css";
 export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
 
   async function handleLogin(e) {
@@ -20,7 +21,13 @@ export default function Login() {
       localStorage.setItem("access", response.data.access);
       localStorage.setItem("refresh", response.data.refresh);
 
-      navigate("/home");
+      const responseUser = await api.get("usuarios/me/");
+
+      if (responseUser.data.is_staff || responseUser.data.is_superuser) {
+        navigate("/admin");
+      } else {
+        navigate("/home");
+      }
     } catch (error) {
       alert("Usuário ou senha inválidos");
     }
