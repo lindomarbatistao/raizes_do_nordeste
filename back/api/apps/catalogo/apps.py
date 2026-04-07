@@ -1,5 +1,6 @@
 from django.apps import AppConfig
 
-
 class CatalogoConfig(AppConfig):
-    name = 'catalogo'
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'api.apps.catalogo'
+    label = 'catalogo'

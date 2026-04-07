@@ -1,5 +1,6 @@
 from django.apps import AppConfig
 
-
 class LojasConfig(AppConfig):
-    name = 'lojas'
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'api.apps.lojas'
+    label = 'lojas'

@@ -1,5 +1,4 @@
 from django.db import models
-from .models import Usuario, Loja, Produto
 
 class Pedido(models.Model):
     STATUS = (
@@ -18,8 +17,8 @@ class Pedido(models.Model):
         ('BALCAO', 'Balcão'),
     )
 
-    cliente = models.ForeignKey(Usuario, on_delete=models.CASCADE, related_name='pedidos')
-    loja = models.ForeignKey(Loja, on_delete=models.CASCADE, related_name='pedidos')
+    cliente = models.ForeignKey('usuarios.Usuario', on_delete=models.CASCADE, related_name='pedidos')
+    loja = models.ForeignKey('lojas.Loja', on_delete=models.CASCADE, related_name='pedidos')
     canal = models.CharField(max_length=20, choices=CANAIS)
     status = models.CharField(max_length=20, choices=STATUS, default='CRIADO')
     valor_total = models.DecimalField(max_digits=10, decimal_places=2, default=0)
@@ -31,11 +30,11 @@ class Pedido(models.Model):
 
 
 class ItemPedido(models.Model):
-    pedido = models.ForeignKey(Pedido, on_delete=models.CASCADE, related_name='itens')
-    produto = models.ForeignKey(Produto, on_delete=models.CASCADE)
+    pedido = models.ForeignKey('pedidos.Pedido', on_delete=models.CASCADE, related_name='itens')
+    produto = models.ForeignKey('catalogo.Produto', on_delete=models.CASCADE)
     quantidade = models.PositiveIntegerField(default=1)
     preco_unitario = models.DecimalField(max_digits=10, decimal_places=2)
     subtotal = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
-        return f'{self.produto.nome} - Pedido #{self.pedido.id}'
+        return f'{self.produto_id} - Pedido #{self.pedido_id}'

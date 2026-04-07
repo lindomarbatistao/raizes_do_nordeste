@@ -2,4 +2,6 @@ from django.apps import AppConfig
 
 
 class FidelidadeConfig(AppConfig):
-    name = 'fidelidade'
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'api.apps.fidelidade'
+    label = 'fidelidade'

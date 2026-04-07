@@ -1,5 +1,5 @@
 from django.db import models
-from .models import Loja
+from api.apps.lojas.models import Loja
 
 
 class Categoria(models.Model):

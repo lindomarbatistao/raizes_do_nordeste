@@ -16,20 +16,21 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rest_framework_simplejwt',
 
     'corsheaders',
     'rest_framework',
+    'rest_framework_simplejwt',
 
-    'apps.usuarios',
-    'apps.lojas',
-    'apps.catalogo',
-    'apps.pedidos',
-    'apps.pagamentos',
-    'apps.fidelidade',
+    'api.apps.usuarios',
+    'api.apps.lojas',
+    'api.apps.catalogo',
+    'api.apps.pedidos',
+    'api.apps.pagamentos',
+    'api.apps.fidelidade',
 ]
 
 AUTH_USER_MODEL = 'usuarios.Usuario'
+
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
@@ -47,7 +48,7 @@ SIMPLE_JWT = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'corsheaders.middleware.CorsMiddleware'
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -83,8 +84,12 @@ WSGI_APPLICATION = 'raizes.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'raizes',
+        'USER': 'root',
+        'PASSWORD': 'root',
+        'HOST': 'localhost',
+        'PORT': '3306'
     }
 }
 
