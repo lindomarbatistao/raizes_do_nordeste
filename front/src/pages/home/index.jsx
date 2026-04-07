@@ -58,7 +58,7 @@ export default function Home() {
 
           <div className="hero-left">
             <h2>
-              {usuario ? `Bem-vindo, ${usuario.username}` : "Bem-vindo"}
+              {usuario ? `Bem-vindo, ${usuario.first_name} ${usuario.last_name}` : "Bem-vindo"}
             </h2>
             <p>
               Sua experiência com a Raízes do Nordeste começa aqui. Navegue pelo cardápio,

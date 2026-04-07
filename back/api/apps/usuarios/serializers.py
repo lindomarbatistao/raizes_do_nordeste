@@ -46,4 +46,7 @@ class UsuarioMeSerializer(serializers.ModelSerializer):
             'telefone',
             'cpf',
             'tipo',
+            'is_staff',
+            'is_superuser',
+            'is_active'
         ]

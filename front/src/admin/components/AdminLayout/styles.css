@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --bg: #f7f7f4;
+  --grid: #ecece6;
+  --card: #ffffff;
+  --text: #111111;
+  --muted: #666666;
+  --yellow: #f4d54d;
+  --yellow-soft: #fff7cf;
+  --border: #111111;
+  --shadow: 6px 6px 0 #f4d54d;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.admin-layout-page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+.admin-sidebar {
+  border-right: 3px solid var(--border);
+  background: #fffef8;
+  padding: 24px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.admin-brand {
+  border: 3px solid var(--border);
+  border-radius: 22px;
+  background: white;
+  box-shadow: var(--shadow);
+  padding: 18px;
+}
+
+.admin-brand h2 {
+  font-family: "DM Serif Display", serif;
+  font-size: 2rem;
+  margin-bottom: 4px;
+}
+
+.admin-brand p {
+  color: var(--muted);
+}
+
+.admin-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-menu a {
+  border: 3px solid var(--border);
+  border-radius: 16px;
+  padding: 12px 14px;
+  background: white;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.admin-menu a.active,
+.admin-menu a:hover {
+  background: var(--yellow-soft);
+  transform: translateY(-2px);
+}
+
+.admin-logout-btn {
+  margin-top: auto;
+  border: 3px solid var(--border);
+  border-radius: 16px;
+  padding: 14px;
+  background: #fff1f1;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.admin-main {
+  padding: 32px;
+}
+
+.admin-topbar {
+  margin-bottom: 26px;
+}
+
+.admin-badge {
+  display: inline-block;
+  border: 3px solid var(--border);
+  background: var(--yellow-soft);
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.admin-main-title {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.05;
+  margin-bottom: 10px;
+}
+
+.admin-main-subtitle {
+  color: var(--muted);
+  max-width: 760px;
+}
+
+.admin-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.admin-table-card {
+  background: white;
+  border: 3px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+.admin-table-card h3 {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.8rem;
+  margin-bottom: 18px;
+}
+
+.admin-table-wrapper {
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-table th,
+.admin-table td {
+  text-align: left;
+  padding: 14px 12px;
+  border-bottom: 2px dashed #d8d8d8;
+}
+
+.admin-table th {
+  font-weight: 700;
+  background: #fffdf4;
+}
+
+.admin-empty {
+  color: var(--muted);
+}
+
+.status-pill {
+  display: inline-block;
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  background: white;
+}
+
+.status-true,
+.status-aprovado,
+.status-entregue {
+  background: #ebffec;
+}
+
+.status-false,
+.status-recusado,
+.status-cancelado {
+  background: #ffe9e9;
+}
+
+.status-pendente,
+.status-criado,
+.status-em_preparo,
+.status-pronto,
+.status-pago {
+  background: #fff7cf;
+}
+
+@media (max-width: 980px) {
+  .admin-layout-page {
+    grid-template-columns: 1fr;
+  }
+
+  .admin-sidebar {
+    border-right: none;
+    border-bottom: 3px solid var(--border);
+  }
+}

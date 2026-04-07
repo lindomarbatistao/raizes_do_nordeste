@@ -1,0 +1,54 @@
+import { useEffect, useState } from "react";
+import api from "../../services/api";
+import AdminLayout from "../components/AdminLayout";
+
+export default function AdminCategorias() {
+  const [categorias, setCategorias] = useState([]);
+
+  useEffect(() => {
+    async function carregar() {
+      try {
+        const response = await api.get("categorias/");
+        setCategorias(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    carregar();
+  }, []);
+
+  return (
+    <AdminLayout
+      title="Categorias"
+      subtitle="Visualize as categorias de produtos cadastradas."
+    >
+      <div className="admin-table-card">
+        <h3>Lista de categorias</h3>
+        <div className="admin-table-wrapper">
+          <table className="admin-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+              </tr>
+            </thead>
+            <tbody>
+              {categorias.length > 0 ? (
+                categorias.map((categoria) => (
+                  <tr key={categoria.id}>
+                    <td>{categoria.id}</td>
+                    <td>{categoria.nome}</td>
+                  </tr>
+                ))
+              ) : (
+                <tr>
+                  <td colSpan="2" className="admin-empty">Nenhuma categoria encontrada.</td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </AdminLayout>
+  );
+}
