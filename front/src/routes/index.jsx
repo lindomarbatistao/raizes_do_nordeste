@@ -17,6 +17,7 @@ import AdminEstoque from "../admin/estoque";
 import AdminPedidos from "../admin/pedidos";
 import AdminPagamentos from "../admin/pagamentos";
 import AdminFidelidades from "../admin/fidelidades";
+import AdminLayout from "../admin/components/AdminLayout";
 
 export default function AppRoutes() {
   return (
