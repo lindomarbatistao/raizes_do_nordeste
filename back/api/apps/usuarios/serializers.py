@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Usuario
+from api.apps.usuarios.models import Usuario
 
 
 class UsuarioSerializer(serializers.ModelSerializer):
@@ -7,7 +7,17 @@ class UsuarioSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Usuario
-        fields = ['id', 'username', 'password', 'email', 'first_name', 'last_name', 'telefone', 'cpf', 'tipo']
+        fields = [
+            'id',
+            'username',
+            'password',
+            'email',
+            'first_name',
+            'last_name',
+            'telefone',
+            'cpf',
+            'tipo',
+        ]
 
     def create(self, validated_data):
         password = validated_data.pop('password')
@@ -15,3 +25,18 @@ class UsuarioSerializer(serializers.ModelSerializer):
         user.set_password(password)
         user.save()
         return user
+
+
+class UsuarioMeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Usuario
+        fields = [
+            'id',
+            'username',
+            'email',
+            'first_name',
+            'last_name',
+            'telefone',
+            'cpf',
+            'tipo',
+        ]

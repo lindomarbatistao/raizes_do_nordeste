@@ -1,7 +1,8 @@
 from rest_framework.viewsets import ReadOnlyModelViewSet
 from rest_framework.permissions import IsAuthenticated
-from .models import Fidelidade
-from .serializers import FidelidadeSerializer
+
+from api.apps.fidelidade.models import Fidelidade
+from api.apps.fidelidade.serializers import FidelidadeSerializer
 
 
 class FidelidadeViewSet(ReadOnlyModelViewSet):
@@ -11,5 +12,5 @@ class FidelidadeViewSet(ReadOnlyModelViewSet):
     def get_queryset(self):
         user = self.request.user
         if user.tipo == 'ADMIN':
-            return Fidelidade.objects.all()
+            return Fidelidade.objects.all().order_by('-id')
         return Fidelidade.objects.filter(cliente=user)
