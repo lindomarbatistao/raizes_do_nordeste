@@ -5,11 +5,27 @@ import "./styles.css";
 
 export default function Carrinho() {
   const [carrinho, setCarrinho] = useState([]);
+  const [lojas, setLojas] = useState([]);
+  const [lojaSelecionada, setLojaSelecionada] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     const dados = JSON.parse(localStorage.getItem("carrinho")) || [];
     setCarrinho(dados);
+
+    async function carregarLojas() {
+      try {
+        const response = await api.get("lojas/");
+        setLojas(response.data);
+        if (response.data.length > 0) {
+          setLojaSelecionada(String(response.data[0].id));
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    carregarLojas();
   }, []);
 
   function atualizarCarrinho(novoCarrinho) {
@@ -42,13 +58,15 @@ export default function Carrinho() {
   async function finalizarPedido() {
     try {
       const payload = {
-        loja: 1,
+        loja: Number(lojaSelecionada),
         canal: "WEB",
         itens: carrinho.map((item) => ({
           produto: item.id,
           quantidade: item.quantidade,
         })),
       };
+
+      console.log("Payload enviado:", payload);
 
       await api.post("pedidos/", payload);
 
@@ -57,8 +75,13 @@ export default function Carrinho() {
       alert("Pedido realizado com sucesso!");
       navigate("/pedidos");
     } catch (error) {
-      console.error(error);
-      alert("Erro ao finalizar pedido.");
+      console.error("Erro completo:", error);
+      console.error("Resposta do backend:", error.response?.data);
+      alert(
+        typeof error.response?.data === "string"
+          ? error.response.data
+          : JSON.stringify(error.response?.data || "Erro ao finalizar pedido.")
+      );
     }
   }
 
@@ -74,7 +97,7 @@ export default function Carrinho() {
           <span className="cart-badge">Carrinho</span>
           <h1 className="cart-title">Revise seu pedido</h1>
           <p className="cart-subtitle">
-            Ajuste quantidades e finalize quando estiver tudo certo.
+            Ajuste quantidades, escolha a loja e finalize quando estiver tudo certo.
           </p>
         </div>
 
@@ -117,6 +140,24 @@ export default function Carrinho() {
 
           <div className="cart-summary">
             <h3>Resumo</h3>
+
+            <div style={{ marginBottom: "16px" }}>
+              <label style={{ display: "block", marginBottom: "8px", fontWeight: "700" }}>
+                Loja
+              </label>
+              <select
+                className="store-select"
+                value={lojaSelecionada}
+                onChange={(e) => setLojaSelecionada(e.target.value)}
+              >
+                {lojas.map((loja) => (
+                  <option key={loja.id} value={loja.id}>
+                    {loja.nome}
+                  </option>
+                ))}
+              </select>
+            </div>
+
             <div className="summary-row">
               <span>Total</span>
               <strong>R$ {total.toFixed(2)}</strong>
@@ -125,7 +166,7 @@ export default function Carrinho() {
             <button
               className="btn-main full"
               onClick={finalizarPedido}
-              disabled={carrinho.length === 0}
+              disabled={carrinho.length === 0 || !lojaSelecionada}
             >
               Finalizar pedido
             </button>

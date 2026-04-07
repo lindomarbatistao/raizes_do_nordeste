@@ -6,6 +6,7 @@ import Produtos from "../pages/produtos";
 import Fidelidade from "../pages/fidelidade";
 import Pedidos from "../pages/pedidos";
 import Carrinho from "../pages/carrinho";
+import Register from "../pages/register";
 
 export default function AppRoutes() {
   return (
@@ -17,6 +18,7 @@ export default function AppRoutes() {
         <Route path="/fidelidade" element={<Fidelidade />} />
         <Route path="/pedidos" element={<Pedidos />} />
         <Route path="/carrinho" element={<Carrinho />} />
+        <Route path="/register" element={<Register />} />
       </Routes>
     </BrowserRouter>
   );

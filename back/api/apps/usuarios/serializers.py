@@ -18,12 +18,19 @@ class UsuarioSerializer(serializers.ModelSerializer):
             'cpf',
             'tipo',
         ]
+        read_only_fields = ['tipo']
 
     def create(self, validated_data):
         password = validated_data.pop('password')
+
         user = Usuario(**validated_data)
+        user.tipo = 'CLIENTE'
+        user.is_active = True
+        user.is_staff = False
+        user.is_superuser = False
         user.set_password(password)
         user.save()
+
         return user
 
 

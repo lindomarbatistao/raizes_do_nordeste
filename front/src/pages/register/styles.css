@@ -11,17 +11,12 @@
   --shadow: 6px 6px 0 #f4d54d;
 }
 
-body {
-  margin: 0;
-  font-family: "Inter", sans-serif;
-}
-
-/* fundo quadriculado */
-.login-page {
-  height: 100vh;
+.register-page {
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 40px 24px;
   background-color: var(--bg);
   background-image:
     linear-gradient(var(--grid) 1px, transparent 1px),
@@ -29,15 +24,12 @@ body {
   background-size: 36px 36px;
 }
 
-/* container */
-.login-container {
+.register-container {
   width: 100%;
-  max-width: 420px;
-  padding: 20px;
+  max-width: 520px;
 }
 
-/* card principal */
-.login-card {
+.register-card {
   position: relative;
   background: var(--card);
   border: 3px solid var(--border);
@@ -46,8 +38,7 @@ body {
   box-shadow: var(--shadow);
 }
 
-/* bolinha decorativa */
-.login-dot {
+.register-dot {
   width: 18px;
   height: 18px;
   background: var(--yellow);
@@ -58,29 +49,25 @@ body {
   left: 16px;
 }
 
-/* título */
-.login-title {
+.register-title {
   font-family: "DM Serif Display", serif;
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   text-align: center;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
-/* subtítulo */
-.login-subtitle {
+.register-subtitle {
   text-align: center;
   color: var(--muted);
-  margin-bottom: 24px;
+  margin-bottom: 22px;
 }
 
-/* form */
-.login-form {
+.register-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
-/* inputs */
 .input {
   border: 3px solid var(--border);
   border-radius: 14px;
@@ -89,7 +76,6 @@ body {
   outline: none;
 }
 
-/* botão */
 .btn {
   border: 3px solid var(--border);
   background: var(--yellow);
@@ -104,30 +90,14 @@ body {
   transform: translateY(-2px);
 }
 
-.login-link-text {
+.register-link-text {
   text-align: center;
   margin-top: 18px;
   color: var(--muted);
 }
 
-.login-link-text a {
+.register-link-text a {
   color: #111;
   font-weight: 700;
   text-decoration: none;
-}
-
-.login-link-text {
-  text-align: center;
-  margin-top: 18px;
-  color: var(--muted);
-}
-
-.login-link-text a {
-  color: #111;
-  font-weight: 700;
-  text-decoration: none;
-}
-
-.login-link-text a:hover {
-  text-decoration: underline;
 }

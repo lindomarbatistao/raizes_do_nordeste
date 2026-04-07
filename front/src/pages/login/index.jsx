@@ -1,6 +1,6 @@
 import { useState } from "react";
 import api from "../../services/api";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./styles.css";
 
 export default function Login() {
@@ -29,7 +29,6 @@ export default function Login() {
   return (
     <div className="login-page">
       <div className="login-container">
-
         <div className="login-card">
           <span className="login-dot"></span>
 
@@ -57,8 +56,11 @@ export default function Login() {
               Entrar
             </button>
           </form>
-        </div>
 
+          <p className="login-link-text">
+            Não tem conta? <Link to="/register">Cadastre-se</Link>
+          </p>
+        </div>
       </div>
     </div>
   );
