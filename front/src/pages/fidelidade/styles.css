@@ -1,0 +1,100 @@
+.fidelity-page {
+  min-height: 100vh;
+  padding: 40px 24px;
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+.fidelity-container {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.fidelity-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.fidelity-badge {
+  display: inline-block;
+  border: 3px solid var(--border);
+  background: #fff7cf;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.fidelity-title {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  margin-bottom: 14px;
+}
+
+.fidelity-subtitle {
+  color: var(--muted);
+}
+
+.fidelity-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.fidelity-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr;
+  gap: 22px;
+}
+
+.fidelity-card {
+  position: relative;
+  background: #fff;
+  border: 3px solid var(--border);
+  border-radius: 26px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.fidelity-card.main {
+  background: #fffdf4;
+}
+
+.fidelity-dot {
+  width: 16px;
+  height: 16px;
+  border: 3px solid var(--border);
+  background: var(--yellow);
+  border-radius: 50%;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.fidelity-card h2,
+.fidelity-card h3 {
+  font-family: "DM Serif Display", serif;
+  margin: 18px 0 12px;
+}
+
+.big-number {
+  font-family: "DM Serif Display", serif;
+  font-size: 4rem;
+  line-height: 1;
+  margin-bottom: 12px;
+}
+
+.highlight {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #111;
+}
+
+@media (max-width: 900px) {
+  .fidelity-grid {
+    grid-template-columns: 1fr;
+  }
+}

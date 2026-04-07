@@ -1,0 +1,113 @@
+.products-page {
+  min-height: 100vh;
+  padding: 40px 24px;
+  background-color: var(--bg);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 36px 36px;
+}
+
+.products-container {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.products-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.products-badge {
+  display: inline-block;
+  border: 3px solid var(--border);
+  background: #fff7cf;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.products-title {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(2.4rem, 6vw, 5rem);
+  line-height: 1.05;
+  margin-bottom: 14px;
+}
+
+.products-subtitle {
+  color: var(--muted);
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.products-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.product-card {
+  position: relative;
+  background: #fff;
+  border: 3px solid var(--border);
+  border-radius: 26px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.product-dot {
+  width: 16px;
+  height: 16px;
+  border: 3px solid var(--border);
+  background: var(--yellow);
+  border-radius: 50%;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.product-card h3 {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.7rem;
+  margin: 18px 0 10px;
+}
+
+.product-card p {
+  color: var(--muted);
+  line-height: 1.6;
+  min-height: 72px;
+}
+
+.product-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 18px;
+  gap: 12px;
+}
+
+.small {
+  padding: 10px 14px;
+  font-size: 0.95rem;
+}
+
+@media (max-width: 980px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 680px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+}

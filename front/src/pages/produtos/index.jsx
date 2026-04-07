@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
+import "./styles.css";
 
 export default function Produtos() {
   const [produtos, setProdutos] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function carregarProdutos() {
@@ -17,15 +20,67 @@ export default function Produtos() {
     carregarProdutos();
   }, []);
 
+  function adicionarAoCarrinho(produto) {
+    const carrinhoAtual = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+    const itemExistente = carrinhoAtual.find((item) => item.id === produto.id);
+
+    if (itemExistente) {
+      itemExistente.quantidade += 1;
+    } else {
+      carrinhoAtual.push({
+        id: produto.id,
+        nome: produto.nome,
+        preco: Number(produto.preco),
+        quantidade: 1,
+      });
+    }
+
+    localStorage.setItem("carrinho", JSON.stringify(carrinhoAtual));
+    alert("Produto adicionado ao carrinho!");
+  }
+
   return (
-    <div>
-      <h1>Produtos</h1>
-      {produtos.map((produto) => (
-        <div key={produto.id}>
-          <p>{produto.nome}</p>
-          <p>R$ {produto.preco}</p>
+    <div className="products-page">
+      <div className="products-container">
+        <div className="products-header">
+          <span className="products-badge">Cardápio</span>
+          <h1 className="products-title">Escolha seu pedido</h1>
+          <p className="products-subtitle">
+            Explore os produtos disponíveis e monte sua experiência.
+          </p>
         </div>
-      ))}
+
+        <div className="products-actions">
+          <button className="btn-outline" onClick={() => navigate("/home")}>
+            Voltar
+          </button>
+          <button className="btn-main" onClick={() => navigate("/carrinho")}>
+            Ver carrinho
+          </button>
+        </div>
+
+        <div className="products-grid">
+          {produtos.map((produto) => (
+            <div className="product-card" key={produto.id}>
+              <span className="product-dot"></span>
+
+              <h3>{produto.nome}</h3>
+              <p>{produto.descricao || "Produto disponível na unidade."}</p>
+
+              <div className="product-footer">
+                <strong>R$ {Number(produto.preco).toFixed(2)}</strong>
+                <button
+                  className="btn-main small"
+                  onClick={() => adicionarAoCarrinho(produto)}
+                >
+                  Adicionar
+                </button>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

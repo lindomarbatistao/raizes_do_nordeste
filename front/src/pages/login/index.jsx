@@ -1,6 +1,7 @@
 import { useState } from "react";
 import api from "../../services/api";
 import { useNavigate } from "react-router-dom";
+import "./styles.css";
 
 export default function Login() {
   const [username, setUsername] = useState("");
@@ -26,21 +27,39 @@ export default function Login() {
   }
 
   return (
-    <form onSubmit={handleLogin}>
-      <h1>Login</h1>
-      <input
-        type="text"
-        placeholder="Usuário"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Senha"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button type="submit">Entrar</button>
-    </form>
+    <div className="login-page">
+      <div className="login-container">
+
+        <div className="login-card">
+          <span className="login-dot"></span>
+
+          <h1 className="login-title">Raízes do Nordeste</h1>
+          <p className="login-subtitle">Acesse sua conta para continuar</p>
+
+          <form onSubmit={handleLogin} className="login-form">
+            <input
+              className="input"
+              type="text"
+              placeholder="Usuário"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+
+            <input
+              className="input"
+              type="password"
+              placeholder="Senha"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+
+            <button className="btn" type="submit">
+              Entrar
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
   );
 }
