@@ -10,6 +10,8 @@ export default function AdminUsuarios() {
     async function carregar() {
       try {
         const response = await api.get("usuarios/");
+        console.log("Usuário: ", response.data);
+        
         setUsuarios(response.data);
       } catch (error) {
         console.error(error);

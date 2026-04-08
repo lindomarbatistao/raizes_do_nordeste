@@ -17,6 +17,10 @@ class UsuarioSerializer(serializers.ModelSerializer):
             'telefone',
             'cpf',
             'tipo',
+            'tipo',
+            'is_staff',
+            'is_superuser',
+            'is_active'
         ]
         read_only_fields = ['tipo']
 

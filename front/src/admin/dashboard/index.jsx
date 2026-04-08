@@ -117,7 +117,7 @@ export default function AdminDashboard() {
     return [...pedidos].slice(0, 5);
   }, [pedidos]);
 
-  const coresPizza = ["#f4d54d", "#dff5d8", "#ffe8b8", "#dceeff", "#e8f9e8", "#ffdede"];
+  const coresPizza = ["#00bb00", "#0327f3", "#ff0000", "#e900dd", "#c5c503", "#94f001"];
 
   return (
     <div className="admin-dashboard-page">
