@@ -7,14 +7,14 @@ export default StyleSheet.create({
     padding: 20,
   },
   title: {
-    fontSize: 28,
+    fontSize: 30,
     fontWeight: "700",
     color: "#111",
     marginBottom: 18,
   },
   card: {
     backgroundColor: "#fff",
-    borderWidth: 2,
+    borderWidth: 3,
     borderColor: "#111",
     borderRadius: 22,
     padding: 16,
@@ -29,6 +29,6 @@ export default StyleSheet.create({
   info: {
     fontSize: 15,
     color: "#444",
-    marginBottom: 4,
+    marginBottom: 3,
   },
 });

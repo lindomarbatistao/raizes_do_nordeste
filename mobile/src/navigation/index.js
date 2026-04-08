@@ -5,11 +5,9 @@ import UserRoutes from "./UserRoutes";
 import AdminRoutes from "./AdminRoutes";
 
 export default function Routes() {
-  const { signed, loading, user } = useAuth();
+  const { signed, loading, isAdmin } = useAuth();
 
   if (loading) return null;
-
-  const isAdmin = user?.is_staff || user?.is_superuser;
 
   return (
     <NavigationContainer>

@@ -1,29 +1,66 @@
-import { View, Text, TouchableOpacity } from "react-native";
-import { useAuth } from "../../hooks/useAuth";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { useAuth } from "../../../hooks/useAuth";
+import styles from "./styles";
 
-export default function Home() {
+export default function Home({ navigation }) {
   const { user, signOut } = useAuth();
 
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center", padding: 24 }}>
-      <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 12 }}>
-        Home
+    <ScrollView contentContainerStyle={styles.container}>
+      <View style={styles.badge}>
+        <Text style={styles.badgeText}>Portal do Cliente</Text>
+      </View>
+
+      <Text style={styles.title}>
+        Bem-vindo, {user?.first_name || user?.username || "Cliente"}
       </Text>
 
-      <Text style={{ marginBottom: 20 }}>
-        Bem-vindo, {user?.username}
+      <Text style={styles.subtitle}>
+        Explore produtos, acompanhe pedidos e consulte sua fidelidade.
       </Text>
 
-      <TouchableOpacity
-        onPress={signOut}
-        style={{
-          backgroundColor: "#8B0000",
-          padding: 14,
-          borderRadius: 8,
-        }}
-      >
-        <Text style={{ color: "#fff", fontWeight: "bold" }}>Sair</Text>
+      <View style={styles.card}>
+        <Text style={styles.cardTitle}>Acesso rápido</Text>
+
+        <TouchableOpacity
+          style={styles.menuButton}
+          onPress={() => navigation.navigate("Produtos")}
+        >
+          <Text style={styles.menuButtonText}>Produtos</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.menuButton}
+          onPress={() => navigation.navigate("Carrinho")}
+        >
+          <Text style={styles.menuButtonText}>Carrinho</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.menuButton}
+          onPress={() => navigation.navigate("Pedido")}
+        >
+          <Text style={styles.menuButtonText}>Pedidos</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.menuButton}
+          onPress={() => navigation.navigate("Fidelidade")}
+        >
+          <Text style={styles.menuButtonText}>Fidelidade</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.menuButton}
+          onPress={() => navigation.navigate("Perfil")}
+        >
+          <Text style={styles.menuButtonText}>Perfil</Text>
+        </TouchableOpacity>
+      </View>
+
+      <TouchableOpacity style={styles.logoutButton} onPress={signOut}>
+        <Text style={styles.logoutButtonText}>Sair</Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 }

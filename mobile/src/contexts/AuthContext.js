@@ -27,19 +27,19 @@ export function AuthProvider({ children }) {
         api.defaults.headers.common["Authorization"] = `Bearer ${storedAccess}`;
       }
     } catch (error) {
-      console.log("Erro ao carregar storage:", error);
+      console.log("Erro ao carregar dados locais:", error);
     } finally {
       setLoading(false);
     }
   }
 
   async function signIn(username, password) {
-    const response = await api.post("token/", {
+    const tokenResponse = await api.post("token/", {
       username,
       password,
     });
 
-    const { access, refresh } = response.data;
+    const { access, refresh } = tokenResponse.data;
 
     api.defaults.headers.common["Authorization"] = `Bearer ${access}`;
 
@@ -66,6 +66,18 @@ export function AuthProvider({ children }) {
     await AsyncStorage.removeItem("@user");
   }
 
+  async function refreshUser() {
+    try {
+      const response = await api.get("usuarios/me/");
+      setUser(response.data);
+      await AsyncStorage.setItem("@user", JSON.stringify(response.data));
+    } catch (error) {
+      console.log("Erro ao atualizar usuário:", error);
+    }
+  }
+
+  const isAdmin = user?.is_staff || user?.is_superuser;
+
   return (
     <AuthContext.Provider
       value={{
@@ -74,8 +86,10 @@ export function AuthProvider({ children }) {
         access,
         refresh,
         loading,
+        isAdmin,
         signIn,
         signOut,
+        refreshUser,
       }}
     >
       {children}
