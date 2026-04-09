@@ -37,26 +37,22 @@ export function AuthProvider({ children }) {
     }
   }
 
-  async function signIn(username, password) {
-    const tokenResponse = await api.post("token/", {
-      username,
-      password,
-    });
+async function signIn(username, password) {
+  const tokenResponse = await api.post("token/", {
+    username,
+    password,
+  });
 
-    const { access, refresh } = tokenResponse.data;
+  const { access, refresh } = tokenResponse.data;
 
-    api.defaults.headers.common["Authorization"] = `Bearer ${access}`;
+  api.defaults.headers.common.Authorization = `Bearer ${access}`;
 
-    const userResponse = await api.get("usuarios/me/");
+  const userResponse = await api.get("usuarios/me/");
 
-    setAccess(access);
-    setRefresh(refresh);
-    setUser(userResponse.data);
+  setUser(userResponse.data);
 
-    await AsyncStorage.setItem("@token", access);
-    await AsyncStorage.setItem("@refresh", refresh);
-    await AsyncStorage.setItem("@user", JSON.stringify(userResponse.data));
-  }
+  return userResponse.data; // 🔥 ESSENCIAL
+}
 
   async function signOut() {
     setUser(null);

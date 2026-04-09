@@ -1,4 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 import Dashboard from "../screens/Admin/Dashboard";
 import Usuarios from "../screens/Admin/Usuarios";
 import Categorias from "../screens/Admin/Categorias";
@@ -12,15 +13,59 @@ const Stack = createNativeStackNavigator();
 
 export default function AdminRoutes() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Dashboard" component={Dashboard} />
-      <Stack.Screen name="Usuarios" component={Usuarios} />
-      <Stack.Screen name="Categorias" component={Categorias} />
-      <Stack.Screen name="ProdutosAdmin" component={Produtos} options={{ title: "Produtos" }} />
-      <Stack.Screen name="Estoque" component={Estoque} />
-      <Stack.Screen name="PedidosAdmin" component={Pedidos} options={{ title: "Pedidos" }} />
-      <Stack.Screen name="Pagamentos" component={Pagamentos} />
-      <Stack.Screen name="Fidelidades" component={Fidelidades} />
+    <Stack.Navigator
+      initialRouteName="AdminDashboard"
+      screenOptions={{
+        headerTitleAlign: "center",
+      }}
+    >
+      <Stack.Screen
+        name="AdminDashboard"
+        component={Dashboard}
+        options={{ title: "Dashboard" }}
+      />
+
+      <Stack.Screen
+        name="AdminUsuarios"
+        component={Usuarios}
+        options={{ title: "Usuários" }}
+      />
+
+      <Stack.Screen
+        name="AdminCategorias"
+        component={Categorias}
+        options={{ title: "Categorias" }}
+      />
+
+      <Stack.Screen
+        name="AdminProdutos"
+        component={Produtos}
+        options={{ title: "Produtos" }}
+      />
+
+      <Stack.Screen
+        name="AdminEstoque"
+        component={Estoque}
+        options={{ title: "Estoque" }}
+      />
+
+      <Stack.Screen
+        name="AdminPedidos"
+        component={Pedidos}
+        options={{ title: "Pedidos" }}
+      />
+
+      <Stack.Screen
+        name="AdminPagamentos"
+        component={Pagamentos}
+        options={{ title: "Pagamentos" }}
+      />
+
+      <Stack.Screen
+        name="AdminFidelidades"
+        component={Fidelidades}
+        options={{ title: "Fidelidades" }}
+      />
     </Stack.Navigator>
   );
 }

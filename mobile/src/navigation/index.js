@@ -1,17 +1,21 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { useAuth } from "../hooks/useAuth";
 import AuthRoutes from "./AuthRoutes";
-import UserRoutes from "./UserRoutes";
 import AdminRoutes from "./AdminRoutes";
+import UserRoutes from "./UserRoutes";
 
 export default function Routes() {
-  const { signed, loading, isAdmin } = useAuth();
-
-  if (loading) return null;
+  const { user } = useAuth();
 
   return (
     <NavigationContainer>
-      {!signed ? <AuthRoutes /> : isAdmin ? <AdminRoutes /> : <UserRoutes />}
+      {!user ? (
+        <AuthRoutes />
+      ) : user.is_staff || user.is_superuser ? (
+        <AdminRoutes />
+      ) : (
+        <UserRoutes />
+      )}
     </NavigationContainer>
   );
 }

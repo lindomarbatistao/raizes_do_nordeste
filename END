@@ -1,0 +1,101 @@
+[33mcommit 5323c4e787bca28a712083145a9ab00f02ea7794[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: lindomar <lindomarbatistao@gmail.com>
+Date:   Thu Apr 9 11:24:27 2026 -0300
+
+    Mobile - consertando Login/incompleto
+
+[33mcommit ee5b9fa707ac30318f6bc037434a2660a071ccd8[m
+Author: lindomar <lindomarbatistao@gmail.com>
+Date:   Wed Apr 8 16:27:06 2026 -0300
+
+    Mobile - Telas / User / Admin + Rotas
+
+[33mcommit 74a4a27e09a08850a903794e326b8cfdf25e3250[m
+Author: lindomar <lindomarbatistao@gmail.com>
+Date:   Wed Apr 8 12:17:24 2026 -0300
+
+    Organização da estrutura de pastas (Mobile)
+
+[33mcommit 63074cea0ec8190f0d9a47ae228f2547d4234409[m
+Author: lindomar <lindomarbatistao@gmail.com>
+Date:   Wed Apr 8 12:07:18 2026 -0300
+
+    Termino v1 do FRONT
+
+[33mcommit 93302120bde9ad2be559f2fd324a3ac21da3bf75[m
+Author: lindomar <lindomarbatistao@gmail.com>
+Date:   Tue Apr 7 20:15:05 2026 -0300
+
+    Páginas do admin v3 + Estilizações
+
+[33mcommit 9a4433425ccc2f879624bd2cb2e24aa5d67f01f7[m
+Author: lindomar <lindomarbatistao@gmail.com>
+Date:   Tue Apr 7 19:20:51 2026 -0300
+
+    Páginas do admin v2
+
+[33mcommit 622d17284d9bcf3dc544e769f08845d92543bd2c[m
+Author: lindomar <lindomarbatistao@gmail.com>
+Date:   Tue Apr 7 19:02:23 2026 -0300
+
+    Páginas do admin v1
+
+[33mcommit f1d859bddb35f4d6abf6188a4d557853b64b4bdd[m
+Author: lindomar <lindomarbatistao@gmail.com>
+Date:   Tue Apr 7 16:41:35 2026 -0300
+
+    Diferenciação de usuários v1
+
+[33mcommit 61b399622e33a09ef622bab7820dd20f41dce6ce[m
+Author: lindomar <lindomarbatistao@gmail.com>
+Date:   Tue Apr 7 16:14:56 2026 -0300
+
+    Cadastro de usuários + Pedidos
+
+[33mcommit a27bc4a849e2b68ceb93d077004c044a80ae6edb[m
+Author: lindomar <lindomarbatistao@gmail.com>
+Date:   Tue Apr 7 13:29:08 2026 -0300
+
+    React -> Estilização das telas + Carrinho
+
+[33mcommit b2c6444ed4acb561e52f89620a7653745c8074fe[m
+Author: lindomar <lindomarbatistao@gmail.com>
+Date:   Tue Apr 7 12:15:02 2026 -0300
+
+    Rodei o Mobile na Web
+
+[33mcommit 2bffb8cb1c65830620235582a1a347616f1e02fe[m
+Author: lindomar <lindomarbatistao@gmail.com>
+Date:   Tue Apr 7 09:58:45 2026 -0300
+
+    Estrutura básica do Mobile-React-Native
+
+[33mcommit 90a8e2da61788d95bbbc5aa446c9d8539cbf7ca1[m
+Author: lindomar <lindomarbatistao@gmail.com>
+Date:   Tue Apr 7 09:53:23 2026 -0300
+
+    Estrututa básica do Front-React
+
+[33mcommit 9ba1f2e9f101c8ef9edf7aa88fe2f906a9521edf[m
+Author: lindomar <lindomarbatistao@gmail.com>
+Date:   Tue Apr 7 09:33:04 2026 -0300
+
+    Fazer pedido completo
+
+[33mcommit 5d5c02bc2127e44d28ee7f4a22d2b98dc2a5d1fd[m
+Author: lindomar <lindomarbatistao@gmail.com>
+Date:   Tue Apr 7 09:21:32 2026 -0300
+
+    Conversão do banco para MySQL e população
+
+[33mcommit 859ee7b8d3fc8cd99e0b3b0fbc797af479902425[m
+Author: lindomarbatistao <lindomarbatistao@gmail.com>
+Date:   Mon Apr 6 21:48:46 2026 -0300
+
+    Organização inicial backend
+
+[33mcommit f0d5f56be56925f2b73ffb220bad5c0dc2ef4d0f[m
+Author: lindomarbatistao <102332556+lindomarbatistao@users.noreply.github.com>
+Date:   Mon Apr 6 20:47:57 2026 -0300
+
+    Initial commit

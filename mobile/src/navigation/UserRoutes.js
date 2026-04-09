@@ -1,4 +1,5 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 import Home from "../screens/User/Home";
 import Produtos from "../screens/User/Produtos";
 import Carrinho from "../screens/User/Carrinho";
@@ -10,13 +11,47 @@ const Stack = createNativeStackNavigator();
 
 export default function UserRoutes() {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Produtos" component={Produtos} />
-      <Stack.Screen name="Carrinho" component={Carrinho} />
-      <Stack.Screen name="Pedido" component={Pedido} />
-      <Stack.Screen name="Fidelidade" component={Fidelidade} />
-      <Stack.Screen name="Perfil" component={Perfil} />
+    <Stack.Navigator
+      initialRouteName="UserProdutos"
+      screenOptions={{
+        headerTitleAlign: "center",
+      }}
+    >
+      <Stack.Screen
+        name="UserHome"
+        component={Home}
+        options={{ title: "Home" }}
+      />
+
+      <Stack.Screen
+        name="UserProdutos"
+        component={Produtos}
+        options={{ title: "Produtos" }}
+      />
+
+      <Stack.Screen
+        name="UserCarrinho"
+        component={Carrinho}
+        options={{ title: "Carrinho" }}
+      />
+
+      <Stack.Screen
+        name="UserPedido"
+        component={Pedido}
+        options={{ title: "Pedido" }}
+      />
+
+      <Stack.Screen
+        name="UserFidelidade"
+        component={Fidelidade}
+        options={{ title: "Fidelidade" }}
+      />
+
+      <Stack.Screen
+        name="UserPerfil"
+        component={Perfil}
+        options={{ title: "Perfil" }}
+      />
     </Stack.Navigator>
   );
 }
