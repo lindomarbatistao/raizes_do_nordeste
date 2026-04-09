@@ -1,41 +1,34 @@
-import { useEffect, useState } from "react";
-import { FlatList, Text, View } from "react-native";
-import api from "../../../services/api";
-import styles from "./styles";
+import { StyleSheet } from "react-native";
 
-export default function Pagamentos() {
-  const [pagamentos, setPagamentos] = useState([]);
-
-  useEffect(() => {
-    async function carregar() {
-      try {
-        const response = await api.get("pagamentos/");
-        setPagamentos(response.data || []);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-
-    carregar();
-  }, []);
-
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Pagamentos</Text>
-
-      <FlatList
-        data={pagamentos}
-        keyExtractor={(item) => String(item.id)}
-        renderItem={({ item }) => (
-          <View style={styles.card}>
-            <Text style={styles.name}>Pagamento #{item.id}</Text>
-            <Text style={styles.info}>Pedido: {item.pedido}</Text>
-            <Text style={styles.info}>Método: {item.metodo}</Text>
-            <Text style={styles.info}>Status: {item.status}</Text>
-            <Text style={styles.info}>Valor: R$ {Number(item.valor).toFixed(2)}</Text>
-          </View>
-        )}
-      />
-    </View>
-  );
-}
+export default StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#f7f7f4",
+    padding: 20,
+  },
+  title: {
+    fontSize: 30,
+    fontWeight: "700",
+    color: "#111",
+    marginBottom: 18,
+  },
+  card: {
+    backgroundColor: "#fff",
+    borderWidth: 3,
+    borderColor: "#111",
+    borderRadius: 22,
+    padding: 16,
+    marginBottom: 14,
+  },
+  name: {
+    fontSize: 20,
+    fontWeight: "700",
+    color: "#111",
+    marginBottom: 6,
+  },
+  info: {
+    fontSize: 15,
+    color: "#444",
+    marginBottom: 3,
+  },
+});

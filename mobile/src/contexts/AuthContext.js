@@ -10,6 +10,10 @@ export function AuthProvider({ children }) {
   const [refresh, setRefresh] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // console.log("Username: ", user.username);
+  // console.log("Password: ", password);
+  
+
   useEffect(() => {
     loadStorageData();
   }, []);

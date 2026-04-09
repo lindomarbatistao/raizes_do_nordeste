@@ -13,8 +13,15 @@ export default function Login() {
     try {
       await signIn(username, password);
     } catch (error) {
-      console.log(error?.response?.data || error);
-      Alert.alert("Erro", "Usuário ou senha inválidos");
+      console.log("ERRO COMPLETO:", error);
+      console.log("RESPONSE DATA:", error?.response?.data);
+      console.log("RESPONSE STATUS:", error?.response?.status);
+      console.log("MESSAGE:", error?.message);
+
+      Alert.alert(
+        "Erro",
+        JSON.stringify(error?.response?.data || error?.message || "Falha no login")
+      );
     }
   }
 

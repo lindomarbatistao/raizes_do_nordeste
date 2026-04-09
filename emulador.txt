@@ -1,3 +1,7 @@
 emulator -list-avds
 emulator -avd NOME_DO_EMULADOR
 emulator -avd Pixel_9_Pro
+
+
+py manage.py runserver 0.0.0.0:8000
+
