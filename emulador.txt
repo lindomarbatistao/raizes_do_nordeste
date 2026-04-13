@@ -5,3 +5,9 @@ emulator -avd Pixel_9_Pro
 
 py manage.py runserver 0.0.0.0:8000
 
+Se demorar para rodar no prompt de comando normal execute:
+adb kill-server
+adb start-server
+adb devices
+npx expo start -c
+

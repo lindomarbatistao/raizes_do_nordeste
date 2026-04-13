@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { useAuth } from "../hooks/useAuth";
-import AuthRoutes from "./AuthRoutes";
+import PublicRoutes from "./PublicRoutes";
 import AdminRoutes from "./AdminRoutes";
 import UserRoutes from "./UserRoutes";
 
@@ -10,7 +10,7 @@ export default function Routes() {
   return (
     <NavigationContainer>
       {!user ? (
-        <AuthRoutes />
+        <PublicRoutes />
       ) : user.is_staff || user.is_superuser ? (
         <AdminRoutes />
       ) : (

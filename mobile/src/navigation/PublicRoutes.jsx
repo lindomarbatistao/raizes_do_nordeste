@@ -1,0 +1,33 @@
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import Produtos from "../screens/Produtos/index.jsx";
+import Carrinho from "../screens/User/Carrinho/index.jsx";
+import Login from "../screens/Auth/Login/index.jsx";
+import Register from "../screens/Auth/Register/index.jsx";
+
+const Stack = createNativeStackNavigator();
+
+export default function PublicRoutes() {
+    return (
+        <Stack.Navigator
+            initialRouteName="Produtos"
+            screenOptions={{ headerShown: false }}
+        >
+            <Stack.Screen
+                name="Carrinho"
+                component={Carrinho}
+                options={{ title: "Carrinho" }}
+            />
+            <Stack.Screen
+                name="Login"
+                component={Login}
+                options={{ title: "Login" }}
+            />
+            <Stack.Screen
+                name="Register"
+                component={Register}
+                options={{ title: "Cadastro" }}
+            />
+        </Stack.Navigator>
+    );
+}

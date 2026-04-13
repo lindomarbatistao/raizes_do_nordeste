@@ -23,7 +23,7 @@ class ItemPedidoSerializer(serializers.ModelSerializer):
 
 class PedidoSerializer(serializers.ModelSerializer):
     itens = ItemPedidoSerializer(many=True, read_only=True)
-    cliente_nome = serializers.CharField(source="cliente.nome", read_only=True)
+    cliente_nome = serializers.SerializerMethodField()
     loja_nome = serializers.CharField(source="loja.nome", read_only=True)
 
     class Meta:
@@ -42,6 +42,9 @@ class PedidoSerializer(serializers.ModelSerializer):
             "itens",
         ]
 
+    def get_cliente_nome(self, obj):
+        return obj.cliente.username if obj.cliente else None
+
 
 class ItemPedidoCreateSerializer(serializers.Serializer):
     produto = serializers.IntegerField()
@@ -56,7 +59,7 @@ class PedidoCreateSerializer(serializers.Serializer):
     def create(self, validated_data):
         request = self.context["request"]
         cliente = request.user
-        
+
         print("CLIENTE LOGADO:", cliente)
         print("ID CLIENTE:", cliente.id)
 
@@ -73,7 +76,7 @@ class PedidoCreateSerializer(serializers.Serializer):
         )
 
         total = Decimal("0.00")
-        
+
         print("PEDIDO CRIADO:", pedido.id, "CLIENTE:", pedido.cliente_id)
 
         for item in itens_data:
