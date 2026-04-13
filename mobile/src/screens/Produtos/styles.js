@@ -16,6 +16,7 @@ export default StyleSheet.create({
     textAlign: "center",
     marginBottom: 10,
     color: "#3a2a1a",
+    paddingTop: 70
   },
 
   actions: {
@@ -90,7 +91,7 @@ export default StyleSheet.create({
 
   addButton: {
     marginTop: 8,
-    backgroundColor: "#f2b705",
+    backgroundColor: "#d6aa26",
     borderRadius: 8,
     paddingVertical: 8,
     alignItems: "center",
