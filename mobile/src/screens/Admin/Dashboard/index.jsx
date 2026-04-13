@@ -27,7 +27,7 @@ export default function Dashboard({ navigation }) {
           <Text style={styles.menuButtonText}>Categorias</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate("ProdutosAdmin")}>
+        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate("Produtos")}>
           <Text style={styles.menuButtonText}>Produtos</Text>
         </TouchableOpacity>
 
@@ -43,7 +43,7 @@ export default function Dashboard({ navigation }) {
           <Text style={styles.menuButtonText}>Pagamentos</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate("Fidelidades")}>
+        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate("AdminFidelidades")}>
           <Text style={styles.menuButtonText}>Fidelidades</Text>
         </TouchableOpacity>
       </View>

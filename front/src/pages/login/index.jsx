@@ -26,7 +26,7 @@ export default function Login() {
       if (responseUser.data.is_staff || responseUser.data.is_superuser) {
         navigate("/admin");
       } else {
-        navigate("/home");
+        navigate("/produtos");
       }
     } catch (error) {
       alert("Usuário ou senha inválidos");

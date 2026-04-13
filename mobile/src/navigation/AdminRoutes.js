@@ -3,8 +3,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Dashboard from "../screens/Admin/Dashboard";
 import Usuarios from "../screens/Admin/Usuarios";
 import Categorias from "../screens/Admin/Categorias";
-import Produtos from "../screens/Admin/Produtos";
-import Estoque from "../screens/Admin/Estoque";
+import Produtos from "../screens/Produtos";
+import Estoque from "../screens/Admin/Estoque"
 import Pedidos from "../screens/Admin/Pedidos";
 import Pagamentos from "../screens/Admin/Pagamentos";
 import Fidelidades from "../screens/Admin/Fidelidades";
@@ -14,7 +14,7 @@ const Stack = createNativeStackNavigator();
 export default function AdminRoutes() {
   return (
     <Stack.Navigator
-      initialRouteName="AdminDashboard"
+      initialRouteName="Produtos"
       screenOptions={{
         headerTitleAlign: "center",
       }}
@@ -38,7 +38,7 @@ export default function AdminRoutes() {
       />
 
       <Stack.Screen
-        name="AdminProdutos"
+        name="Produtos"
         component={Produtos}
         options={{ title: "Produtos" }}
       />

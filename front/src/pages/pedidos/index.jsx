@@ -44,7 +44,9 @@ export default function Pedidos() {
                 <div className="order-left">
                   <h3>Pedido #{pedido.id}</h3>
                   <p>Loja: {pedido.loja_nome || "Não informada"}</p>
+                  <p>Cliente: {pedido.cliente_nome || "Não informada"}</p>
                   <p>Canal: {pedido.canal}</p>
+                  {console.log("Cliente: ", pedido)            }
                 </div>
 
                 <div className="order-right">

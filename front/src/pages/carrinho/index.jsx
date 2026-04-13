@@ -56,6 +56,15 @@ export default function Carrinho() {
   }
 
   async function finalizarPedido() {
+
+    const token = localStorage.getItem("access")
+
+    if (!token) {
+      alert("Você precisa fazer login para finalizar o pedido.");
+      navigate("/login");
+      return;
+    }
+
     try {
       const payload = {
         loja: Number(lojaSelecionada),

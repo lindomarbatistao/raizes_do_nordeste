@@ -1,7 +1,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Home from "../screens/User/Home";
-import Produtos from "../screens/User/Produtos";
+import Produtos from "../screens/Produtos"
 import Carrinho from "../screens/User/Carrinho";
 import Pedido from "../screens/User/Pedido";
 import Fidelidade from "../screens/User/Fidelidade";
@@ -12,7 +12,7 @@ const Stack = createNativeStackNavigator();
 export default function UserRoutes() {
   return (
     <Stack.Navigator
-      initialRouteName="UserProdutos"
+      initialRouteName="Produtos"
       screenOptions={{
         headerTitleAlign: "center",
       }}
@@ -24,7 +24,7 @@ export default function UserRoutes() {
       />
 
       <Stack.Screen
-        name="UserProdutos"
+        name="Produtos"
         component={Produtos}
         options={{ title: "Produtos" }}
       />

@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "../pages/login";
 import Register from "../pages/register";
 import Home from "../pages/home";
-import Produtos from "../pages/produtos";
 import Fidelidade from "../pages/fidelidade";
 import Pedidos from "../pages/pedidos";
 import Carrinho from "../pages/carrinho";
@@ -12,7 +11,7 @@ import AdminRoute from "./AdminRoute";
 import AdminDashboard from "../admin/dashboard";
 import AdminUsuarios from "../admin/usuarios";
 import AdminCategorias from "../admin/categorias";
-import AdminProdutos from "../admin/produtos";
+import Produtos from "../pages/produtos"
 import AdminEstoque from "../admin/estoque";
 import AdminPedidos from "../admin/pedidos";
 import AdminPagamentos from "../admin/pagamentos";
@@ -23,8 +22,9 @@ export default function AppRoutes() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Produtos />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/login" element={<Login />} />
 
         <Route path="/home" element={<Home />} />
         <Route path="/produtos" element={<Produtos />} />
@@ -60,7 +60,7 @@ export default function AppRoutes() {
           path="/admin/produtos"
           element={
             <AdminRoute>
-              <AdminProdutos />
+              <Produtos />
             </AdminRoute>
           }
         />

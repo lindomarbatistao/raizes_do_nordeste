@@ -1,23 +1,27 @@
 import { useEffect, useState } from "react";
 import { FlatList, Text, View } from "react-native";
-import api from "../../../services/api";
+import api from "../../services/api";
 import styles from "./styles";
 
 export default function Produtos() {
   const [produtos, setProdutos] = useState([]);
 
-  useEffect(() => {
-    async function carregar() {
-      try {
-        const response = await api.get("produtos/");
-        setProdutos(response.data || []);
-      } catch (error) {
-        console.log(error);
-      }
-    }
+useEffect(() => {
+  async function carregar() {
+    try {
+      const response = await api.get("produtos/");
+      console.log("RESPOSTA COMPLETA:", response.data);
+      console.log("É array?", Array.isArray(response.data));
 
-    carregar();
-  }, []);
+      setProdutos(response.data || []);
+    } catch (error) {
+      console.log("ERRO AO CARREGAR PRODUTOS:");
+      console.log(error?.response?.data || error.message || error);
+    }
+  }
+
+  carregar();
+}, []);
 
   return (
     <View style={styles.container}>
