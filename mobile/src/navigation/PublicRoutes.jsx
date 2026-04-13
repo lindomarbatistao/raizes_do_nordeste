@@ -4,6 +4,7 @@ import Produtos from "../screens/Produtos/index.jsx";
 import Carrinho from "../screens/User/Carrinho/index.jsx";
 import Login from "../screens/Auth/Login/index.jsx";
 import Register from "../screens/Auth/Register/index.jsx";
+import Pedido from "../screens/Admin/Pedidos/index.jsx";
 
 const Stack = createNativeStackNavigator();
 
@@ -33,6 +34,11 @@ export default function PublicRoutes() {
       <Stack.Screen
         name="Register"
         component={Register}
+        options={{ title: "Cadastro" }}
+      />
+      <Stack.Screen
+        name="Pedido"
+        component={Pedido}
         options={{ title: "Cadastro" }}
       />
     </Stack.Navigator>

@@ -108,4 +108,22 @@ export default StyleSheet.create({
     marginTop: 20,
     color: "#555",
   },
+
+  headerIcons: {
+  // width: "100%",
+  flexDirection: "row",
+  justifyContent: "flex-end", // 👉 joga pra direita
+  alignItems: "center",
+  gap: 12,
+  marginBottom: 10,
+},
+
+iconButton: {
+  backgroundColor: "#fff",
+  padding: 8,
+  borderRadius: 50,
+  borderWidth: 2,
+  borderColor: "#6b5b4b",
+},
 });
+

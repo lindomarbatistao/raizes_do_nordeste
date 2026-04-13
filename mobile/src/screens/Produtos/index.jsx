@@ -1,4 +1,9 @@
 import { useEffect, useState } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useNavigation } from "@react-navigation/native";
+import api from "../../services/api";
+import styles from "./styles";
+import { Ionicons } from "@expo/vector-icons";
 import {
   FlatList,
   Text,
@@ -6,10 +11,6 @@ import {
   TouchableOpacity,
   Alert,
 } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { useNavigation } from "@react-navigation/native";
-import api from "../../services/api";
-import styles from "./styles";
 
 export default function Produtos() {
   const [produtos, setProdutos] = useState([]);
@@ -71,19 +72,32 @@ export default function Produtos() {
       <Text style={styles.title}>Produtos</Text>
 
       <View style={styles.actions}>
-        <TouchableOpacity
-          style={styles.secondaryButton}
-          onPress={() => navigation.goBack()}
-        >
-          <Text style={styles.secondaryButtonText}>Voltar</Text>
-        </TouchableOpacity>
 
-        <TouchableOpacity
-          style={styles.mainButton}
-          onPress={() => navigation.navigate("Carrinho")}
-        >
-          <Text style={styles.mainButtonText}>Ver carrinho</Text>
-        </TouchableOpacity>
+
+        <View style={styles.actions}>
+          <TouchableOpacity
+            style={styles.mainButton}
+            onPress={() => navigation.navigate("Carrinho")}
+          >
+            <Text style={styles.mainButtonText}>Ver carrinho</Text>
+          </TouchableOpacity>
+
+          <View style={styles.headerIcons}>
+            <TouchableOpacity
+              style={styles.iconButton}
+              onPress={() => navigation.navigate("Login")}
+            >
+              <Ionicons name="person-outline" size={30} color="#3a2a1a" />
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.iconButton}
+              onPress={() => navigation.navigate("Carrinho")}
+            >
+              <Ionicons name="cart-outline" size={30} color="#3a2a1a" />
+            </TouchableOpacity>
+          </View>
+        </View>
       </View>
 
       <Text style={{ marginBottom: 10 }}>

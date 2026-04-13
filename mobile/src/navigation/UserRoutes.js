@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "../screens/User/Home";
 import Produtos from "../screens/Produtos"
 import Carrinho from "../screens/User/Carrinho";
-import Pedido from "../screens/User/Pedido";
+import Pedidos from "../screens/Admin/Pedidos";
 import Fidelidade from "../screens/User/Fidelidade";
 import Perfil from "../screens/User/Perfil";
 
@@ -37,7 +37,7 @@ export default function UserRoutes() {
 
       <Stack.Screen
         name="UserPedido"
-        component={Pedido}
+        component={Pedidos}
         options={{ title: "Pedido" }}
       />
 
