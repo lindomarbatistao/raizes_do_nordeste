@@ -71,32 +71,28 @@ export default function Produtos() {
     <View style={styles.container}>
       <Text style={styles.title}>Produtos</Text>
 
-      <View style={styles.actions}>
+      <View style={styles.header}>
 
 
-        <View style={styles.actions}>
+        <View style={styles.headerIcons}>
+          <TouchableOpacity
+            style={styles.iconButton}
+            onPress={() => navigation.navigate("Login")}
+          >
+            <Ionicons name="person-outline" size={30} color="#3a2a1a" />
+          </TouchableOpacity>
           <TouchableOpacity
             style={styles.mainButton}
             onPress={() => navigation.navigate("Carrinho")}
           >
             <Text style={styles.mainButtonText}>Ver carrinho</Text>
           </TouchableOpacity>
-
-          <View style={styles.headerIcons}>
-            <TouchableOpacity
-              style={styles.iconButton}
-              onPress={() => navigation.navigate("Login")}
-            >
-              <Ionicons name="person-outline" size={30} color="#3a2a1a" />
-            </TouchableOpacity>
-
-            <TouchableOpacity
-              style={styles.iconButton}
-              onPress={() => navigation.navigate("Carrinho")}
-            >
-              <Ionicons name="cart-outline" size={30} color="#3a2a1a" />
-            </TouchableOpacity>
-          </View>
+          <TouchableOpacity
+            style={styles.iconButton}
+            onPress={() => navigation.navigate("Carrinho")}
+          >
+            <Ionicons name="cart-outline" size={30} color="#3a2a1a" />
+          </TouchableOpacity>
         </View>
       </View>
 

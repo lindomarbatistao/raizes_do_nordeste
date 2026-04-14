@@ -20,6 +20,7 @@ export default StyleSheet.create({
   },
 
   actions: {
+    display: "flex",
     flexDirection: "row",
     gap: 10,
     marginBottom: 12,
@@ -42,7 +43,7 @@ export default StyleSheet.create({
   },
 
   mainButton: {
-    flex: 1,
+    flex: 0.7,
     backgroundColor: "#f2b705",
     borderWidth: 2,
     borderColor: "#6b5b4b",
@@ -124,6 +125,12 @@ iconButton: {
   borderRadius: 50,
   borderWidth: 2,
   borderColor: "#6b5b4b",
+},
+header: {
+  flexDirection: "row",
+  justifyContent: "space-between", // 🔥 ESSENCIAL
+  alignItems: "center",
+  marginBottom: 12,
 },
 });
 
