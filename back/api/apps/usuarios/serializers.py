@@ -17,12 +17,11 @@ class UsuarioSerializer(serializers.ModelSerializer):
             'telefone',
             'cpf',
             'tipo',
-            'tipo',
             'is_staff',
             'is_superuser',
             'is_active'
         ]
-        read_only_fields = ['tipo']
+        read_only_fields = ['tipo', 'is_staff', 'is_superuser', 'is_active']
 
     def create(self, validated_data):
         password = validated_data.pop('password')

@@ -56,43 +56,35 @@ export default function Carrinho() {
   }
 
   async function finalizarPedido() {
+  const token = localStorage.getItem("access");
 
-    const token = localStorage.getItem("access")
-
-    if (!token) {
-      alert("Você precisa fazer login para finalizar o pedido.");
-      navigate("/login");
-      return;
-    }
-
-    try {
-      const payload = {
-        loja: Number(lojaSelecionada),
-        canal: "WEB",
-        itens: carrinho.map((item) => ({
-          produto: item.id,
-          quantidade: item.quantidade,
-        })),
-      };
-
-      console.log("Payload enviado:", payload);
-
-      await api.post("pedidos/", payload);
-
-      localStorage.removeItem("carrinho");
-      setCarrinho([]);
-      alert("Pedido realizado com sucesso!");
-      navigate("/pedidos");
-    } catch (error) {
-      console.error("Erro completo:", error);
-      console.error("Resposta do backend:", error.response?.data);
-      alert(
-        typeof error.response?.data === "string"
-          ? error.response.data
-          : JSON.stringify(error.response?.data || "Erro ao finalizar pedido.")
-      );
-    }
+  if (!token) {
+    localStorage.setItem("redirectAfterLogin", "/carrinho");
+    alert("Você precisa fazer login para finalizar o pedido.");
+    navigate("/login");
+    return;
   }
+
+  try {
+    const payload = {
+      loja: Number(lojaSelecionada),
+      canal: "WEB",
+      itens: carrinho.map((item) => ({
+        produto: item.id,
+        quantidade: item.quantidade,
+      })),
+    };
+
+    await api.post("pedidos/", payload);
+
+    localStorage.removeItem("carrinho");
+    setCarrinho([]);
+    alert("Pedido realizado com sucesso!");
+    navigate("/pedidos");
+  } catch (error) {
+    alert(JSON.stringify(error.response?.data || "Erro ao finalizar pedido."));
+  }
+}
 
   const total = carrinho.reduce(
     (acc, item) => acc + item.preco * item.quantidade,

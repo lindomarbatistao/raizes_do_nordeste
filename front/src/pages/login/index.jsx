@@ -10,28 +10,36 @@ export default function Login() {
   const navigate = useNavigate();
 
   async function handleLogin(e) {
-    e.preventDefault();
+  e.preventDefault();
 
-    try {
-      const response = await api.post("token/", {
-        username,
-        password,
-      });
+  try {
+    const response = await api.post("token/", {
+      username,
+      password,
+    });
 
-      localStorage.setItem("access", response.data.access);
-      localStorage.setItem("refresh", response.data.refresh);
+    localStorage.setItem("access", response.data.access);
+    localStorage.setItem("refresh", response.data.refresh);
 
-      const responseUser = await api.get("usuarios/me/");
+    const responseUser = await api.get("usuarios/me/");
 
-      if (responseUser.data.is_staff || responseUser.data.is_superuser) {
-        navigate("/admin");
-      } else {
-        navigate("/produtos");
-      }
-    } catch (error) {
-      alert("Usuário ou senha inválidos");
+    const redirect = localStorage.getItem("redirectAfterLogin");
+
+    if (redirect) {
+      localStorage.removeItem("redirectAfterLogin");
+      navigate(redirect);
+      return;
     }
+
+    if (responseUser.data.is_staff || responseUser.data.is_superuser) {
+      navigate("/admin");
+    } else {
+      navigate("/produtos");
+    }
+  } catch (error) {
+    alert("Usuário ou senha inválidos");
   }
+}
 
   return (
     <div className="login-page">
