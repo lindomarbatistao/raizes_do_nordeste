@@ -17,7 +17,8 @@ export default function Login() {
       username,
       password,
     });
-
+    console.log(response.data.access);
+    
     localStorage.setItem("access", response.data.access);
     localStorage.setItem("refresh", response.data.refresh);
 

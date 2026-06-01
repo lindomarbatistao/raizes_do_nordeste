@@ -12,6 +12,7 @@ export default function Produtos() {
       try {
         const response = await api.get("produtos/");
         setProdutos(response.data);
+        
       } catch (error) {
         console.error(error);
       }

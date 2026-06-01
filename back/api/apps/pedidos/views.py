@@ -16,8 +16,10 @@ class PedidoViewSet(ModelViewSet):
 
     def get_queryset(self):
         user = self.request.user
-        if user.tipo == 'ADMIN':
+
+        if user.is_staff or user.is_superuser or user.tipo == 'ADMIN':
             return Pedido.objects.all().order_by('-id')
+
         return Pedido.objects.filter(cliente=user).order_by('-id')
 
     def get_serializer_class(self):
@@ -26,9 +28,13 @@ class PedidoViewSet(ModelViewSet):
         return PedidoSerializer
 
     def create(self, request, *args, **kwargs):
-        serializer = PedidoCreateSerializer(data=request.data, context={'request': request})
+        serializer = PedidoCreateSerializer(
+            data=request.data,
+            context={'request': request}
+        )
         serializer.is_valid(raise_exception=True)
         pedido = serializer.save()
+
         output = PedidoSerializer(pedido, context={'request': request})
         return Response(output.data, status=status.HTTP_201_CREATED)
 
