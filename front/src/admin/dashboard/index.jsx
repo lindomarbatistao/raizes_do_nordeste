@@ -284,6 +284,11 @@ export default function AdminDashboard() {
           </div>
         </section>
       </div>
+      <footer className="footer">
+        <p><strong>Desenvolvido por:</strong> Lindomar José Batistão</p>
+        <p><strong>RU:</strong> 4427651</p>
+        <p>Curso Superior de Tecnologia em Análise e Desenvolvimento de Sistemas - UNINTER</p>
+      </footer>
     </div>
   );
 }

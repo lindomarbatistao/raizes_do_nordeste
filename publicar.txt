@@ -1,0 +1,70 @@
+1) npm install firebase
+
+
+2) Crie o arquivo src/services/firebase.js
+
+import { initializeApp } from "firebase/app";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyAjrlwrkNJSZ0gAMN4U6ol9UeRjLpRJEWY",
+  authDomain: "raizesdonordeste4427651.firebaseapp.com",
+  projectId: "raizesdonordeste4427651",
+  storageBucket: "raizesdonordeste4427651.firebasestorage.app",
+  messagingSenderId: "99194769957",
+  appId: "1:99194769957:web:a6b027be8d3d584f6f65cc"
+};
+
+const app = initializeApp(firebaseConfig);
+
+export default app;
+
+3) Colocar o "import "./services/firebase";" no main.jsx
+
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+
+import "./services/firebase";
+
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+
+4) npm install -g firebase-tools
+
+5) Faça login: firebase login
+
+6) Inicialize o projeto: firebase init hosting
+
+ - Yes
+ - Use an exixting project
+
+ Se der erro:
+ - firebase logout
+ - firebase login --reauth
+ - firebase projects:list
+ - Se listar os projetos, rode novamente:
+    - firebase init hosting
+
+    - Yes
+    - Use an exixting project
+    - selecione o projeto desejado
+
+    - ? What do you want to use as your public directory? (public) dist
+    - ? Configure as a single-page app (rewrite all urls to /index.html)? (Y/n) Yes
+    - Set up automatic builds and deploys with GitHub? No
+    - ? Would you like to install agent skills for Firebase? (Y/n) no
+
+7)  - npm run build
+    - firebase deploy
+
++ Deploy complete!
+
+Hosting URL:
+https://raizesdonordeste4427651.web.app
+raizesdonordeste4427651.firebaseapp.com
+
+
