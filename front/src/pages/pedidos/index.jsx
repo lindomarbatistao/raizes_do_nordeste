@@ -46,7 +46,6 @@ export default function Pedidos() {
                   <p>Loja: {pedido.loja_nome || "Não informada"}</p>
                   <p>Cliente: {pedido.cliente_nome || "Não informada"}</p>
                   <p>Canal: {pedido.canal}</p>
-                  {console.log("Cliente: ", pedido)            }
                 </div>
 
                 <div className="order-right">

@@ -132,3 +132,20 @@
 .login-link:hover {
   transform: translateY(-2px);
 }
+
+.user-icon-container {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.user-icon {
+  font-size: 42px;
+  cursor: pointer;
+  color: #000;
+  transition: 0.2s;
+}
+
+.user-icon:hover {
+  transform: scale(1.1);
+}

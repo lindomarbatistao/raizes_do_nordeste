@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import "./styles.css";
+import { FaUserCircle } from "react-icons/fa";
 
 export default function Produtos() {
   const [produtos, setProdutos] = useState([]);
@@ -12,7 +13,7 @@ export default function Produtos() {
       try {
         const response = await api.get("produtos/");
         setProdutos(response.data);
-        
+
       } catch (error) {
         console.error(error);
       }
@@ -44,6 +45,12 @@ export default function Produtos() {
   return (
     <div className="products-page">
       <div className="products-container">
+        <div className="user-icon-container">
+          <FaUserCircle
+            className="user-icon"
+            onClick={() => navigate("/login")}
+          />
+        </div>
         <div className="products-header">
           <span className="products-badge">Cardápio</span>
           <h1 className="products-title">Escolha seu pedido</h1>
