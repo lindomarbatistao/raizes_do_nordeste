@@ -1,13 +1,26 @@
 emulator -list-avds
 emulator -avd NOME_DO_EMULADOR
-emulator -avd Pixel_9_Pro
+emulator -avd Pixel9
 
 
 py manage.py runserver 0.0.0.0:8000
 
-Se demorar para rodar no prompt de comando normal execute:
-adb kill-server
-adb start-server
-adb devices
-npx expo start -c
+Se demorar para rodar no prompt:
+- Feche o VSCode
+- Execute-o como administrador
+- Execute os comandos:
+    adb kill-server
+    adb start-server
+    adb devices
+
+    Se aparecer:
+        List of devices attached
+        emulator-5554    offline
+
+    Então execute:
+        adb disconnect
+        adb kill-server
+        adb start-server
+
+    npx expo start -c
 

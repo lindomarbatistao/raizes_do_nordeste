@@ -1,27 +1,33 @@
 {
   "expo": {
-  "expo": {
-    "name": "mobile",
-    "slug": "mobile",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash-icon.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "assetBundlePatterns": ["**/*"],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
+    "expo": {
+      "name": "mobile",
+      "slug": "mobile",
+      "version": "1.0.0",
+      "orientation": "portrait",
+      "icon": "./assets/icon.png",
+      "userInterfaceStyle": "light",
+      "splash": {
+        "image": "./assets/splash-icon.png",
+        "resizeMode": "contain",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "assetBundlePatterns": [
+        "**/*"
+      ],
+      "ios": {
+        "supportsTablet": true
+      },
+      "android": {
+        "adaptiveIcon": {
+          "backgroundColor": "#ffffff"
+        }
+      },
+      "web": {}
     },
-    "web": {}
+    "plugins": [
+      "expo-font",
+      "expo-web-browser"
+    ]
   }
-}
 }
