@@ -1,0 +1,7 @@
+
+
+Verificar IP da máquina (192.168.15.6)
+
+py .\manage.py runserver 192.168.15.6:8081
+
+TROCAR AS ROTAS POR 192.168.15.6:8081
