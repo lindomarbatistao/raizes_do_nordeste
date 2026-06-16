@@ -9,28 +9,38 @@ export function AuthProvider({ children }) {
   const [loadingAuth, setLoadingAuth] = useState(true);
 
   useEffect(() => {
-    async function loadStorageData() {
-      try {
-        const token = await AsyncStorage.getItem("access");
+  async function loadStorageData() {
+    console.log("1 - Iniciou");
 
-        if (!token) {
-          setUser(null);
-          return;
-        }
+    try {
+      const token = await AsyncStorage.getItem("access");
+      console.log("2 - Token:", token);
 
-        const response = await api.get("usuarios/me/");
-        setUser(response.data);
-      } catch (error) {
-        await AsyncStorage.removeItem("access");
-        await AsyncStorage.removeItem("refresh");
+      if (!token) {
+        console.log("3 - Sem token");
         setUser(null);
-      } finally {
         setLoadingAuth(false);
+        return;
       }
-    }
 
-    loadStorageData();
-  }, []);
+      console.log("4 - Chamando usuarios/me");
+
+      const response = await api.get("usuarios/me/");
+
+      console.log("5 - Resposta:", response.data);
+
+      setUser(response.data);
+    } catch (error) {
+      console.log("ERRO:", error);
+      setUser(null);
+    } finally {
+      console.log("6 - Finalizou");
+      setLoadingAuth(false);
+    }
+  }
+
+  loadStorageData();
+}, []);
 
   async function signIn(username, password) {
     const response = await api.post("token/", {
