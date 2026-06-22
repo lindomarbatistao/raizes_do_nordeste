@@ -11,10 +11,12 @@ import {
   TouchableOpacity,
   Alert,
 } from "react-native";
+import { useAuth } from "../../contexts/AuthContext";
 
 export default function Produtos() {
   const [produtos, setProdutos] = useState([]);
   const navigation = useNavigation();
+  const { user } = useAuth();
 
   useEffect(() => {
     async function carregarProdutos() {
@@ -77,7 +79,8 @@ export default function Produtos() {
         <View style={styles.headerIcons}>
           <TouchableOpacity
             style={styles.iconButton}
-            onPress={() => navigation.navigate("Login")}
+
+            onPress={() => navigation.navigate(user ? "Perfil" : "Login")}
           >
             <Ionicons name="person-outline" size={30} color="#3a2a1a" />
           </TouchableOpacity>
