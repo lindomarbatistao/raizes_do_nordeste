@@ -19,8 +19,8 @@ export default function Produtos() {
   useEffect(() => {
     async function carregarProdutos() {
       try {
-        await AsyncStorage.removeItem("access");
-        await AsyncStorage.removeItem("refresh");
+        // await AsyncStorage.removeItem("access");
+        // await AsyncStorage.removeItem("refresh");
 
         const response = await api.get("produtos/");
         const lista = Array.isArray(response.data)

@@ -1,0 +1,39 @@
+
+python manage.py shell
+
+
+
+from usuarios.models import Usuario
+
+usuarios = [
+    ("cliente01", "João", "Silva", "cliente01@email.com", "19999990001", "11311111911"),
+    ("cliente02", "Jose", "Silva", "cliente01@email.com", "19999990001", "11311911111"),
+    ("cliente03", "Pedro", "Silva", "cliente01@email.com", "19999990001", "11311111111"),
+    ("cliente04", "Maria", "Souza", "cliente02@email.com", "19999990002", "22222222222"),
+    ("cliente05", "Bruna", "Silva", "cliente01@email.com", "19999990001", "11111611111"),
+    ("cliente06", "Matheus", "Souza", "cliente02@email.com", "19999990002", "22222262222"),
+    ("cliente07", "Carlos", "Silva", "cliente01@email.com", "19999990001", "16111111111"),
+    ("cliente08", "Giavana", "Souza", "cliente02@email.com", "19999990002", "22226222222"),
+    ("cliente09", "Gabriel", "Silva", "cliente01@email.com", "19999990001", "11111111161"),
+    ("cliente10", "Thomaz", "Souza", "cliente02@email.com", "19999990002", "22262222222"),
+
+]
+
+for username, first_name, last_name, email, telefone, cpf in usuarios:
+    Usuario.objects.create_user(
+        username=username,
+        password="123456",
+        first_name=first_name,
+        last_name=last_name,
+        email=email,
+        telefone=telefone,
+        cpf=cpf,
+        tipo="CLIENTE"
+    )
+
+
+
+Assim todos conseguem logar com:
+
+usuário: cliente01
+senha: 123456

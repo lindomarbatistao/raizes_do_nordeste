@@ -29,7 +29,7 @@ export default function Pedidos() {
         renderItem={({ item }) => (
           <View style={styles.card}>
             <Text style={styles.name}>Pedido #{item.id}</Text>
-            <Text style={styles.info}>Cliente: {item.cliente_username || "-"}</Text>
+            <Text style={styles.info}>Cliente: {item.cliente_nome || "-"}</Text>
             <Text style={styles.info}>Loja: {item.loja_nome || "-"}</Text>
             <Text style={styles.info}>Status: {item.status}</Text>
             <Text style={styles.info}>Total: R$ {Number(item.valor_total).toFixed(2)}</Text>

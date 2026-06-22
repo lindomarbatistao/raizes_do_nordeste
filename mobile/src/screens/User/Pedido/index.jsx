@@ -1,23 +1,52 @@
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { FlatList, Text, View } from "react-native";
+import { useFocusEffect } from "@react-navigation/native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import api from "../../../services/api";
 import styles from "./styles";
 
 export default function Pedido() {
   const [pedidos, setPedidos] = useState([]);
 
-  useEffect(() => {
-    async function carregarPedidos() {
-      try {
-        const response = await api.get("pedidos/");
-        setPedidos(response.data || []);
-      } catch (error) {
-        console.log(error);
-      }
-    }
+  useFocusEffect(
+    useCallback(() => {
+      async function carregarPedidos() {
+        try {
+          const token = await AsyncStorage.getItem("access");
 
-    carregarPedidos();
-  }, []);
+          console.log("TOKEN PEDIDOS:", token);
+
+          if (!token) {
+            console.log("SEM TOKEN PARA BUSCAR PEDIDOS");
+            setPedidos([]);
+            return;
+          }
+
+          const response = await api.get("pedidos/", {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          const lista = Array.isArray(response.data)
+            ? response.data
+            : response.data?.results || [];
+
+          console.log("PEDIDOS CARREGADOS:", lista);
+
+          setPedidos(lista);
+        } catch (error) {
+          console.log(
+            "ERRO AO CARREGAR PEDIDOS:",
+            error?.response?.data || error.message
+          );
+          setPedidos([]);
+        }
+      }
+
+      carregarPedidos();
+    }, [])
+  );
 
   return (
     <View style={styles.container}>
@@ -26,6 +55,9 @@ export default function Pedido() {
       <FlatList
         data={pedidos}
         keyExtractor={(item) => String(item.id)}
+        ListEmptyComponent={
+          <Text style={styles.info}>Nenhum pedido encontrado.</Text>
+        }
         renderItem={({ item }) => (
           <View style={styles.card}>
             <Text style={styles.name}>Pedido #{item.id}</Text>

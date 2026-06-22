@@ -10,7 +10,7 @@ import {
 import { useAuth } from "../../../contexts/AuthContext";
 import styles from "./styles";
 
-export default function Login() {
+export default function Login({navigation }) {
   const { signIn } = useAuth();
 
   const [username, setUsername] = useState("");
@@ -29,7 +29,7 @@ export default function Login() {
       setLoading(true);
 
       await signIn(username.trim(), password);
-
+      navigation.navigate("Carrinho");
       console.log("Login realizado com sucesso");
     } catch (error) {
       console.log("ERRO COMPLETO:", error);
@@ -85,6 +85,14 @@ export default function Login() {
         ) : (
           <Text style={styles.buttonText}>Entrar</Text>
         )}
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={{ marginTop: 16 }}
+        onPress={() => navigation.navigate("Register")}
+      >
+        <Text style={{ textAlign: "center", color: "#3a2a1a", fontWeight: "700" }}>
+          Não tenho cadastro. Cadastre-se
+        </Text>
       </TouchableOpacity>
     </View>
   );

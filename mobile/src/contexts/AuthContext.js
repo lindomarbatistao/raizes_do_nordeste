@@ -9,38 +9,42 @@ export function AuthProvider({ children }) {
   const [loadingAuth, setLoadingAuth] = useState(true);
 
   useEffect(() => {
-  async function loadStorageData() {
-    console.log("1 - Iniciou");
+    carregarUsuarioLogado();
+  }, []);
 
+  async function carregarUsuarioLogado() {
     try {
+      setLoadingAuth(true);
+
       const token = await AsyncStorage.getItem("access");
-      console.log("2 - Token:", token);
+
+      console.log("TOKEN SALVO:", token);
 
       if (!token) {
-        console.log("3 - Sem token");
         setUser(null);
-        setLoadingAuth(false);
         return;
       }
 
-      console.log("4 - Chamando usuarios/me");
-
-      const response = await api.get("usuarios/me/");
-
-      console.log("5 - Resposta:", response.data);
+      const response = await api.get("usuarios/me/", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       setUser(response.data);
     } catch (error) {
-      console.log("ERRO:", error);
+      console.log(
+        "ERRO AO CARREGAR USUÁRIO:",
+        error?.response?.data || error.message
+      );
+
+      await AsyncStorage.removeItem("access");
+      await AsyncStorage.removeItem("refresh");
       setUser(null);
     } finally {
-      console.log("6 - Finalizou");
       setLoadingAuth(false);
     }
   }
-
-  loadStorageData();
-}, []);
 
   async function signIn(username, password) {
     const response = await api.post("token/", {
@@ -48,11 +52,20 @@ export function AuthProvider({ children }) {
       password,
     });
 
-    await AsyncStorage.setItem("access", response.data.access);
-    await AsyncStorage.setItem("refresh", response.data.refresh);
+    const { access, refresh } = response.data;
 
-    const responseUser = await api.get("usuarios/me/");
+    await AsyncStorage.setItem("access", access);
+    await AsyncStorage.setItem("refresh", refresh);
+
+    const responseUser = await api.get("usuarios/me/", {
+      headers: {
+        Authorization: `Bearer ${access}`,
+      },
+    });
+
     setUser(responseUser.data);
+
+    return responseUser.data;
   }
 
   async function signOut() {
@@ -68,7 +81,7 @@ export function AuthProvider({ children }) {
         loadingAuth,
         signIn,
         signOut,
-        setUser,
+        carregarUsuarioLogado,
       }}
     >
       {children}

@@ -39,7 +39,7 @@ export default function PublicRoutes() {
       <Stack.Screen
         name="Pedido"
         component={Pedido}
-        options={{ title: "Cadastro" }}
+        options={{ title: "Pedido" }}
       />
     </Stack.Navigator>
   );
