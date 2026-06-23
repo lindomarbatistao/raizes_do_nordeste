@@ -1,8 +1,6 @@
 
 python manage.py shell
 
-
-
 from usuarios.models import Usuario
 
 usuarios = [
