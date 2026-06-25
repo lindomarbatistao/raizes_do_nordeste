@@ -1,5 +1,5 @@
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
-import { useAuth } from "../../../hooks/useAuth";
+import { useAuth } from "../../../contexts/AuthContext";
 import styles from "./styles";
 
 export default function Dashboard({ navigation }) {
@@ -19,11 +19,11 @@ export default function Dashboard({ navigation }) {
       <View style={styles.card}>
         <Text style={styles.cardTitle}>Acesso rápido</Text>
 
-        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate("Usuarios")}>
+        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate("AdminUsuarios")}>
           <Text style={styles.menuButtonText}>Usuários</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate("Categorias")}>
+        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate("AdminCategorias")}>
           <Text style={styles.menuButtonText}>Categorias</Text>
         </TouchableOpacity>
 
@@ -31,15 +31,15 @@ export default function Dashboard({ navigation }) {
           <Text style={styles.menuButtonText}>Produtos</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate("Estoque")}>
+        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate("AdminEstoque")}>
           <Text style={styles.menuButtonText}>Estoque</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate("PedidosAdmin")}>
+        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate("AdminPedidos")}>
           <Text style={styles.menuButtonText}>Pedidos</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate("Pagamentos")}>
+        <TouchableOpacity style={styles.menuButton} onPress={() => navigation.navigate("AdminPagamentos")}>
           <Text style={styles.menuButtonText}>Pagamentos</Text>
         </TouchableOpacity>
 

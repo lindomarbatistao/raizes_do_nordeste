@@ -12,7 +12,7 @@ const Stack = createNativeStackNavigator();
 export default function UserRoutes() {
   return (
     <Stack.Navigator
-      initialRouteName="Produtos"
+      initialRouteName="Home"
       screenOptions={{
         headerTitleAlign: "center",
       }}
