@@ -57,15 +57,15 @@ export function AuthProvider({ children }) {
     await AsyncStorage.setItem("access", access);
     await AsyncStorage.setItem("refresh", refresh);
 
-    const responseUser = await api.get("usuarios/me/", {
+    const userResponse = await api.get("usuarios/me/", {
       headers: {
         Authorization: `Bearer ${access}`,
       },
     });
 
-    setUser(responseUser.data);
+    setUser(userResponse.data);
 
-    return responseUser.data;
+    return userResponse.data;
   }
 
   async function signOut() {

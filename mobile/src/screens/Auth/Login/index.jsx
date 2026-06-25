@@ -10,7 +10,7 @@ import {
 import { useAuth } from "../../../contexts/AuthContext";
 import styles from "./styles";
 
-export default function Login({navigation }) {
+export default function Login({ navigation }) {
   const { signIn } = useAuth();
 
   const [username, setUsername] = useState("");
@@ -18,38 +18,38 @@ export default function Login({navigation }) {
   const [loading, setLoading] = useState(false);
 
   async function handleLogin() {
-    if (loading) return;
+  if (loading) return;
 
-    if (!username.trim() || !password.trim()) {
-      Alert.alert("Atenção", "Preencha usuário e senha.");
-      return;
-    }
-
-    try {
-      setLoading(true);
-
-      await signIn(username.trim(), password);
-      navigation.navigate("Carrinho");
-      console.log("Login realizado com sucesso");
-    } catch (error) {
-      console.log("ERRO COMPLETO:", error);
-      console.log("RESPONSE DATA:", error?.response?.data);
-      console.log("RESPONSE STATUS:", error?.response?.status);
-      console.log("MESSAGE:", error?.message);
-
-      let mensagemErro = "Usuário ou senha inválidos";
-
-      if (error?.response?.data) {
-        mensagemErro = JSON.stringify(error.response.data);
-      } else if (error?.message) {
-        mensagemErro = error.message;
-      }
-
-      Alert.alert("Erro", mensagemErro);
-    } finally {
-      setLoading(false);
-    }
+  if (!username.trim() || !password.trim()) {
+    Alert.alert("Atenção", "Preencha usuário e senha.");
+    return;
   }
+
+  try {
+    setLoading(true);
+
+    const usuarioLogado = await signIn(username.trim(), password);
+
+    console.log("Usuário logado:", usuarioLogado);
+
+    if (usuarioLogado.tipo === "ADMIN") {
+      navigation.reset({
+        index: 0,
+        routes: [{ name: "AdminDashboard" }],
+      });
+    } else {
+      navigation.reset({
+        index: 0,
+        routes: [{ name: "Produtos" }],
+      });
+    }
+  } catch (error) {
+    console.log("ERRO COMPLETO:", error);
+    Alert.alert("Erro", "Usuário ou senha inválidos");
+  } finally {
+    setLoading(false);
+  }
+}
 
   return (
     <View style={styles.container}>

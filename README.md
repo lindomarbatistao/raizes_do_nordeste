@@ -101,3 +101,5 @@ Projeto desenvolvido para a disciplina de Desenvolvimento Front-end - UNINTER.
 
 ## Instalação e Execução do Mobile
 
+Caso emulador fique travando:
+
