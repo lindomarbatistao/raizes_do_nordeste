@@ -53,9 +53,17 @@ export default function Produtos() {
         </div>
         <div className="products-header">
           <span className="products-badge">Cardápio</span>
-          <h1 className="products-title">Escolha seu pedido</h1>
+
+          <h1 className="restaurant-name">
+            🌽 Raízes do Nordeste
+          </h1>
+
+          <h2 className="products-title">
+            Escolha seu pedido
+          </h2>
+
           <p className="products-subtitle">
-            Explore os produtos disponíveis e monte sua experiência.
+            Explore os sabores da tradição nordestina e monte sua experiência.
           </p>
         </div>
 

@@ -24,10 +24,19 @@ export default function Pedidos() {
     <div className="orders-page">
       <div className="orders-container">
         <div className="orders-header">
-          <span className="orders-badge">Pedidos</span>
-          <h1 className="orders-title">Seu histórico de pedidos</h1>
+          <span className="orders-badge">Meus Pedidos</span>
+
+          <h1 className="restaurant-name">
+            🌽 Raízes do Nordeste
+          </h1>
+
+          <h2 className="orders-title">
+            Histórico de Pedidos
+          </h2>
+
           <p className="orders-subtitle">
-            Consulte os pedidos realizados e acompanhe seus status.
+            Consulte todos os pedidos realizados, acompanhe o status de preparo e visualize
+            as informações de cada compra efetuada em nossas unidades.
           </p>
         </div>
 

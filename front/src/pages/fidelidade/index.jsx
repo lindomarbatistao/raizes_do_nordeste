@@ -31,9 +31,18 @@ export default function Fidelidade() {
       <div className="fidelity-container">
         <div className="fidelity-header">
           <span className="fidelity-badge">Programa de Fidelidade</span>
-          <h1 className="fidelity-title">Seus pontos e vantagens</h1>
+
+          <h1 className="restaurant-name">
+            🌽 Raízes do Nordeste
+          </h1>
+
+          <h2 className="fidelity-title">
+            Clube de Fidelidade
+          </h2>
+
           <p className="fidelity-subtitle">
-            Acompanhe sua evolução e aproveite seus benefícios.
+            Acompanhe seus pontos, evolua de categoria e aproveite benefícios exclusivos
+            oferecidos pelo Raízes do Nordeste.
           </p>
         </div>
 

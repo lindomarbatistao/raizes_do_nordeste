@@ -46,10 +46,19 @@ export default function Home() {
     <div className="home-page">
       <div className="home-container">
         <div className="home-header">
-          <span className="home-badge">Portal do Cliente</span>
-          <h1 className="home-title">Um lugar para pedir, acompanhar e voltar.</h1>
+          <span className="home-badge">Restaurante</span>
+
+          <h1 className="restaurant-name">
+            🌽 Raízes do Nordeste
+          </h1>
+
+          <h2 className="home-title">
+            Bem-vindo ao sabor da tradição nordestina.
+          </h2>
+
           <p className="home-subtitle">
-            Explore produtos, acompanhe pedidos e veja suas vantagens no programa de fidelidade.
+            Faça seus pedidos, acompanhe o preparo, consulte seus pontos de fidelidade
+            e aproveite a melhor experiência gastronômica da nossa rede.
           </p>
         </div>
 
