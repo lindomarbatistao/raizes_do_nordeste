@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "raizesdonordeste4427651",
     "public": "dist",
     "ignore": [
       "firebase.json",

@@ -9,7 +9,7 @@
   --yellow: #f4d54d;
   --yellow-soft: #f8e89a;
   --border: #111111;
-  --shadow: 6px 6px 0 #f4d54d;
+  --shadow: 4px 4px 0 #f4d54d;
   --danger: #e85d5d;
 }
 
@@ -19,97 +19,100 @@
 
 .home-page {
   min-height: 100vh;
-  padding: 40px 24px;
+  padding: 24px 18px;
   background-color: var(--bg);
   background-image:
     linear-gradient(var(--grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 36px 36px;
+  background-size: 32px 32px;
 }
 
 .home-container {
-  max-width: 1180px;
+  max-width: 1040px;
   margin: 0 auto;
 }
 
 .home-header {
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 22px;
 }
 
 .home-badge {
   display: inline-block;
-  border: 3px solid var(--border);
+  border: 2px solid var(--border);
   background: #fff7cf;
   border-radius: 999px;
-  padding: 10px 18px;
+  padding: 7px 14px;
+  font-size: 0.9rem;
   font-weight: 700;
-  margin-bottom: 18px;
+  margin-bottom: 12px;
 }
 
 .home-title {
   font-family: "DM Serif Display", serif;
-  font-size: clamp(2.6rem, 6vw, 5.2rem);
+  font-size: clamp(1.9rem, 4.5vw, 3.4rem);
   line-height: 1.05;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
 }
 
 .home-subtitle {
-  max-width: 760px;
+  max-width: 680px;
   margin: 0 auto;
   color: var(--muted);
-  font-size: 1.05rem;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.5;
 }
 
 .home-hero-card {
   position: relative;
   display: grid;
-  grid-template-columns: 1.4fr 0.8fr;
-  gap: 24px;
+  grid-template-columns: 1.35fr 0.85fr;
+  gap: 18px;
   background: var(--card);
-  border: 3px solid var(--border);
-  border-radius: 28px;
-  padding: 28px;
+  border: 2px solid var(--border);
+  border-radius: 18px;
+  padding: 22px;
   box-shadow: var(--shadow);
-  margin-bottom: 30px;
+  margin-bottom: 22px;
 }
 
 .home-dot {
-  width: 18px;
-  height: 18px;
-  border: 3px solid var(--border);
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--border);
   background: var(--yellow);
   border-radius: 50%;
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 13px;
+  left: 13px;
 }
 
 .hero-left h2 {
   font-family: "DM Serif Display", serif;
-  font-size: 2.2rem;
-  margin-bottom: 12px;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
 }
 
 .hero-left p {
   color: var(--muted);
-  line-height: 1.7;
-  max-width: 700px;
+  line-height: 1.55;
+  font-size: 0.95rem;
+  max-width: 650px;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 24px;
+  gap: 10px;
+  margin-top: 18px;
 }
 
 .btn-main,
 .btn-outline {
-  border: 3px solid var(--border);
-  border-radius: 16px;
-  padding: 14px 18px;
+  border: 2px solid var(--border);
+  border-radius: 11px;
+  padding: 10px 14px;
+  font-size: 0.92rem;
   font-weight: 700;
   cursor: pointer;
   transition: 0.2s ease;
@@ -135,15 +138,15 @@
 .hero-right {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   justify-content: center;
 }
 
 .mini-card {
-  border: 3px solid var(--border);
-  border-radius: 22px;
+  border: 2px solid var(--border);
+  border-radius: 16px;
   background: #fff;
-  padding: 22px;
+  padding: 16px;
 }
 
 .mini-card.yellow {
@@ -152,27 +155,27 @@
 
 .mini-card h3 {
   font-family: "DM Serif Display", serif;
-  font-size: 1.4rem;
-  margin-bottom: 8px;
+  font-size: 1.15rem;
+  margin-bottom: 6px;
 }
 
 .mini-card p {
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 700;
 }
 
 .home-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 22px;
-  margin-bottom: 30px;
+  gap: 16px;
+  margin-bottom: 22px;
 }
 
 .feature-card {
   background: #fff;
-  border: 3px solid var(--border);
-  border-radius: 26px;
-  padding: 24px;
+  border: 2px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
   box-shadow: var(--shadow);
   cursor: pointer;
   transition: 0.2s ease;
@@ -183,53 +186,55 @@
 }
 
 .feature-icon {
-  font-size: 2rem;
-  margin-bottom: 14px;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
 }
 
 .feature-card h3 {
   font-family: "DM Serif Display", serif;
-  font-size: 1.7rem;
-  margin-bottom: 10px;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
 }
 
 .feature-card p {
   color: var(--muted);
-  line-height: 1.6;
+  line-height: 1.45;
+  font-size: 0.92rem;
 }
 
 .home-dashboard {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  gap: 22px;
+  gap: 16px;
 }
 
 .dashboard-card {
   background: #fff;
-  border: 3px solid var(--border);
-  border-radius: 26px;
-  padding: 24px;
+  border: 2px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
   box-shadow: var(--shadow);
 }
 
 .dashboard-card h3 {
   font-family: "DM Serif Display", serif;
-  font-size: 1.8rem;
-  margin-bottom: 18px;
+  font-size: 1.3rem;
+  margin-bottom: 14px;
 }
 
 .dashboard-list {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 11px;
 }
 
 .dashboard-item {
   display: flex;
   justify-content: space-between;
-  gap: 16px;
+  gap: 12px;
   border-bottom: 1px dashed #ccc;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
+  font-size: 0.92rem;
 }
 
 .dashboard-item span {
@@ -239,23 +244,24 @@
 .dashboard-orders {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 11px;
 }
 
 .order-item {
   display: flex;
   justify-content: space-between;
-  gap: 18px;
+  gap: 14px;
   align-items: center;
   border: 2px solid var(--border);
-  border-radius: 18px;
-  padding: 14px;
+  border-radius: 14px;
+  padding: 12px;
   background: #fffdf4;
 }
 
 .order-item p {
   color: var(--muted);
-  margin-top: 4px;
+  margin-top: 3px;
+  font-size: 0.9rem;
 }
 
 .order-right {
@@ -264,11 +270,11 @@
 
 .status-badge {
   display: inline-block;
-  margin-bottom: 8px;
-  padding: 6px 12px;
+  margin-bottom: 6px;
+  padding: 5px 10px;
   border: 2px solid var(--border);
   border-radius: 999px;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   font-weight: 700;
   background: #fff;
 }
@@ -299,6 +305,7 @@
 
 .empty-text {
   color: var(--muted);
+  font-size: 0.92rem;
 }
 
 @media (max-width: 980px) {
@@ -306,5 +313,26 @@
   .home-grid,
   .home-dashboard {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .home-page {
+    padding: 20px 14px;
+  }
+
+  .home-hero-card,
+  .feature-card,
+  .dashboard-card {
+    padding: 16px;
+  }
+
+  .order-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .order-right {
+    text-align: left;
   }
 }

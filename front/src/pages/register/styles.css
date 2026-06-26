@@ -8,7 +8,7 @@
   --muted: #666;
   --yellow: #f4d54d;
   --border: #111;
-  --shadow: 6px 6px 0 #f4d54d;
+  --shadow: 4px 4px 0 #f4d54d;
 }
 
 .register-page {
@@ -16,74 +16,81 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px 24px;
+  padding: 24px 18px;
   background-color: var(--bg);
   background-image:
     linear-gradient(var(--grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 36px 36px;
+  background-size: 32px 32px;
 }
 
 .register-container {
   width: 100%;
-  max-width: 520px;
+  max-width: 430px;
 }
 
 .register-card {
   position: relative;
   background: var(--card);
-  border: 3px solid var(--border);
-  border-radius: 28px;
-  padding: 32px 28px;
+  border: 2px solid var(--border);
+  border-radius: 18px;
+  padding: 24px 22px;
   box-shadow: var(--shadow);
 }
 
 .register-dot {
-  width: 18px;
-  height: 18px;
+  width: 12px;
+  height: 12px;
   background: var(--yellow);
-  border: 3px solid var(--border);
+  border: 2px solid var(--border);
   border-radius: 50%;
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 14px;
+  left: 14px;
 }
 
 .register-title {
   font-family: "DM Serif Display", serif;
-  font-size: 2.4rem;
+  font-size: 2rem;
   text-align: center;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .register-subtitle {
   text-align: center;
   color: var(--muted);
-  margin-bottom: 22px;
+  font-size: 0.92rem;
+  margin-bottom: 18px;
 }
 
 .register-form {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 12px;
 }
 
 .input {
-  border: 3px solid var(--border);
-  border-radius: 14px;
-  padding: 14px;
-  font-size: 1rem;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 0.95rem;
   outline: none;
+  transition: .2s;
+}
+
+.input:focus {
+  border-color: var(--yellow);
 }
 
 .btn {
-  border: 3px solid var(--border);
+  border: 2px solid var(--border);
   background: var(--yellow);
-  border-radius: 14px;
-  padding: 14px;
-  font-weight: bold;
+  border-radius: 10px;
+  padding: 11px;
+  font-size: 0.95rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: 0.2s;
+  transition: .2s;
 }
 
 .btn:hover {
@@ -92,12 +99,31 @@
 
 .register-link-text {
   text-align: center;
-  margin-top: 18px;
+  margin-top: 16px;
   color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .register-link-text a {
   color: #111;
   font-weight: 700;
   text-decoration: none;
+}
+
+.register-link-text a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .register-page {
+    padding: 18px 14px;
+  }
+
+  .register-card {
+    padding: 20px 18px;
+  }
+
+  .register-title {
+    font-size: 1.7rem;
+  }
 }

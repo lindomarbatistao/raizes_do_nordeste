@@ -1,61 +1,63 @@
 .fidelity-page {
   min-height: 100vh;
-  padding: 40px 24px;
+  padding: 24px 18px;
   background-color: var(--bg);
   background-image:
     linear-gradient(var(--grid) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 36px 36px;
+  background-size: 32px 32px;
 }
 
 .fidelity-container {
-  max-width: 1080px;
+  max-width: 1040px;
   margin: 0 auto;
 }
 
 .fidelity-header {
   text-align: center;
-  margin-bottom: 24px;
+  margin-bottom: 18px;
 }
 
 .fidelity-badge {
   display: inline-block;
-  border: 3px solid var(--border);
+  border: 2px solid var(--border);
   background: #fff7cf;
   border-radius: 999px;
-  padding: 10px 18px;
+  padding: 7px 14px;
   font-weight: 700;
-  margin-bottom: 18px;
+  font-size: 0.9rem;
+  margin-bottom: 12px;
 }
 
 .fidelity-title {
   font-family: "DM Serif Display", serif;
-  font-size: clamp(2.4rem, 6vw, 5rem);
-  margin-bottom: 14px;
+  font-size: clamp(1.8rem, 4vw, 3.2rem);
+  margin-bottom: 10px;
 }
 
 .fidelity-subtitle {
   color: var(--muted);
+  font-size: 0.95rem;
 }
 
 .fidelity-actions {
   display: flex;
   justify-content: center;
-  margin-bottom: 28px;
+  margin-bottom: 22px;
 }
 
 .fidelity-grid {
   display: grid;
   grid-template-columns: 1.2fr 1fr 1fr;
-  gap: 22px;
+  gap: 16px;
 }
 
 .fidelity-card {
   position: relative;
   background: #fff;
-  border: 3px solid var(--border);
-  border-radius: 26px;
-  padding: 24px;
+  border: 2px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
   box-shadow: var(--shadow);
 }
 
@@ -64,31 +66,38 @@
 }
 
 .fidelity-dot {
-  width: 16px;
-  height: 16px;
-  border: 3px solid var(--border);
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--border);
   background: var(--yellow);
   border-radius: 50%;
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 13px;
+  left: 13px;
 }
 
 .fidelity-card h2,
 .fidelity-card h3 {
   font-family: "DM Serif Display", serif;
-  margin: 18px 0 12px;
+  font-size: 1.25rem;
+  margin: 16px 0 10px;
+}
+
+.fidelity-card p {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--muted);
 }
 
 .big-number {
   font-family: "DM Serif Display", serif;
-  font-size: 4rem;
+  font-size: 3rem;
   line-height: 1;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .highlight {
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #111;
 }
@@ -96,5 +105,11 @@
 @media (max-width: 900px) {
   .fidelity-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 680px) {
+  .fidelity-page {
+    padding: 20px 14px;
   }
 }

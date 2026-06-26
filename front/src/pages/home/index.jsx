@@ -39,7 +39,7 @@ export default function Home() {
   function handleLogout() {
     localStorage.removeItem("access");
     localStorage.removeItem("refresh");
-    navigate("/");
+    navigate("/login");
   }
 
   return (
