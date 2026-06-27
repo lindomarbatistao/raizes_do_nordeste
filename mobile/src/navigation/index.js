@@ -16,14 +16,13 @@ export default function Routes() {
     );
   }
 
-  console.log("PublicRoutes:", PublicRoutes);
-  console.log("AdminRoutes:", AdminRoutes);
-  console.log("UserRoutes:", UserRoutes);
+  const isAdmin = user?.tipo === "ADMIN";
+
   return (
-    <NavigationContainer>
+    <NavigationContainer key={!user ? "public" : isAdmin ? "admin" : "user"}>
       {!user ? (
         <PublicRoutes />
-      ) : user.is_staff || user.is_superuser ? (
+      ) : isAdmin ? (
         <AdminRoutes />
       ) : (
         <UserRoutes />

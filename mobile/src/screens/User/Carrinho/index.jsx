@@ -21,7 +21,6 @@ export default function Carrinho({ navigation }) {
         const dados = await AsyncStorage.getItem("carrinho");
         const lista = dados ? JSON.parse(dados) : [];
 
-        console.log("CARRINHO CARREGADO:", lista);
 
         setItens(lista);
       }

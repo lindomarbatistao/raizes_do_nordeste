@@ -29,10 +29,6 @@ export default function Produtos() {
           ? response.data
           : response.data?.results || [];
 
-        console.log("RESPOSTA COMPLETA:", response.data);
-        console.log("LISTA FINAL:", lista);
-        console.log("TOTAL:", lista.length);
-
         setProdutos(lista);
       } catch (error) {
         console.log("ERRO AO CARREGAR PRODUTOS:");

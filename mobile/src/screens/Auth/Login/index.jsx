@@ -7,6 +7,7 @@ import {
   Alert,
   ActivityIndicator,
 } from "react-native";
+
 import { useAuth } from "../../../contexts/AuthContext";
 import styles from "./styles";
 
@@ -18,38 +19,25 @@ export default function Login({ navigation }) {
   const [loading, setLoading] = useState(false);
 
   async function handleLogin() {
-  if (loading) return;
+    if (loading) return;
 
-  if (!username.trim() || !password.trim()) {
-    Alert.alert("Atenção", "Preencha usuário e senha.");
-    return;
-  }
-
-  try {
-    setLoading(true);
-
-    const usuarioLogado = await signIn(username.trim(), password);
-
-    console.log("Usuário logado:", usuarioLogado);
-
-    if (usuarioLogado.tipo === "ADMIN") {
-      navigation.reset({
-        index: 0,
-        routes: [{ name: "AdminDashboard" }],
-      });
-    } else {
-      navigation.reset({
-        index: 0,
-        routes: [{ name: "Produtos" }],
-      });
+    if (!username.trim() || !password.trim()) {
+      Alert.alert("Atenção", "Preencha usuário e senha.");
+      return;
     }
-  } catch (error) {
-    console.log("ERRO COMPLETO:", error);
-    Alert.alert("Erro", "Usuário ou senha inválidos");
-  } finally {
-    setLoading(false);
+
+    try {
+      setLoading(true);
+
+      const usuarioLogado = await signIn(username.trim(), password);
+
+    } catch (error) {
+      console.log("ERRO COMPLETO:", error?.response?.data || error.message);
+      Alert.alert("Erro", "Usuário ou senha inválidos.");
+    } finally {
+      setLoading(false);
+    }
   }
-}
 
   return (
     <View style={styles.container}>
@@ -86,11 +74,19 @@ export default function Login({ navigation }) {
           <Text style={styles.buttonText}>Entrar</Text>
         )}
       </TouchableOpacity>
+
       <TouchableOpacity
         style={{ marginTop: 16 }}
         onPress={() => navigation.navigate("Register")}
+        disabled={loading}
       >
-        <Text style={{ textAlign: "center", color: "#3a2a1a", fontWeight: "700" }}>
+        <Text
+          style={{
+            textAlign: "center",
+            color: "#3a2a1a",
+            fontWeight: "700",
+          }}
+        >
           Não tenho cadastro. Cadastre-se
         </Text>
       </TouchableOpacity>

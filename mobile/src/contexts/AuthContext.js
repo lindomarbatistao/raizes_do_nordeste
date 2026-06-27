@@ -2,14 +2,20 @@ import { createContext, useContext, useEffect, useState } from "react";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import api from "../services/api";
 
-const AuthContext = createContext({});
+export const AuthContext = createContext({});
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loadingAuth, setLoadingAuth] = useState(true);
 
   useEffect(() => {
-    carregarUsuarioLogado();
+    async function iniciar() {
+      await AsyncStorage.removeItem("access");
+      await AsyncStorage.removeItem("refresh");
+      setLoadingAuth(false);
+    }
+
+    iniciar();
   }, []);
 
   async function carregarUsuarioLogado() {
@@ -17,8 +23,6 @@ export function AuthProvider({ children }) {
       setLoadingAuth(true);
 
       const token = await AsyncStorage.getItem("access");
-
-      console.log("TOKEN SALVO:", token);
 
       if (!token) {
         setUser(null);

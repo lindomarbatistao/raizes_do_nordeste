@@ -1,33 +1,39 @@
 {
   "expo": {
-    "expo": {
-      "name": "mobile",
-      "slug": "mobile",
-      "version": "1.0.0",
-      "orientation": "portrait",
-      "icon": "./assets/icon.png",
-      "userInterfaceStyle": "light",
-      "splash": {
-        "image": "./assets/splash-icon.png",
-        "resizeMode": "contain",
-        "backgroundColor": "#ffffff"
-      },
-      "assetBundlePatterns": [
-        "**/*"
-      ],
-      "ios": {
-        "supportsTablet": true
-      },
-      "android": {
-        "adaptiveIcon": {
-          "backgroundColor": "#ffffff"
-        }
-      },
-      "web": {}
+    "name": "Raízes do Nordeste",
+    "slug": "mobile",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
     },
     "plugins": [
       "expo-font",
       "expo-web-browser"
-    ]
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.lintelecom.mobile",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
+    },
+    "android": {
+      "package": "com.lintelecom.mobile",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/raizes.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "web": {},
+    "extra": {
+      "eas": {
+        "projectId": "0c952665-9885-4201-8d50-ebf441d9aa94"
+      }
+    }
   }
 }

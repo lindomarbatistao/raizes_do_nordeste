@@ -8,11 +8,6 @@ import Pedido from "../screens/Admin/Pedidos/index.jsx";
 
 const Stack = createNativeStackNavigator();
 
-console.log("Produtos:", Produtos);
-console.log("Carrinho:", Carrinho);
-console.log("Login:", Login);
-console.log("Register:", Register);
-
 export default function PublicRoutes() {
   return (
     <Stack.Navigator initialRouteName="Produtos">

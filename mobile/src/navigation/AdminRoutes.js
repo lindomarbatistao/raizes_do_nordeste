@@ -9,15 +9,7 @@ import Pedidos from "../screens/Admin/Pedidos";
 import Pagamentos from "../screens/Admin/Pagamentos";
 import Fidelidades from "../screens/Admin/Fidelidades";
 import Perfil from "../screens/User/Perfil";
-console.log("Dashboard:", Dashboard);
-console.log("Usuarios:", Usuarios);
-console.log("Categorias:", Categorias);
-console.log("Produtos:", Produtos);
-console.log("Estoque:", Estoque);
-console.log("Pedidos:", Pedidos);
-console.log("Pagamentos:", Pagamentos);
-console.log("Fidelidades:", Fidelidades);
-console.log("Perfil:", Perfil);
+
 
 const Stack = createNativeStackNavigator();
 

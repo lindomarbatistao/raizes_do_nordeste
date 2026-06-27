@@ -1,0 +1,10 @@
+{
+  "android": {
+    "package": "com.lintelecom.mobile"
+  },
+  "extra": {
+    "eas": {
+      "projectId": "0c952665-9885-4201-8d50-ebf441d9aa94"
+    }
+  }
+}

@@ -11,6 +11,7 @@ export default function AdminFidelidades() {
       try {
         const response = await api.get("fidelidade/");
         setFidelidades(response.data);
+        console.log("FIDELIDADES:", response.data);
       } catch (error) {
         console.error(error);
       }
