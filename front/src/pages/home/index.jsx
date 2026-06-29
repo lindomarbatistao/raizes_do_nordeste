@@ -42,6 +42,16 @@ export default function Home() {
     navigate("/login");
   }
 
+  function handleProdutos() {
+    const token = localStorage.getItem("access");
+
+    if (!token) {
+      navigate("/login");
+      return;
+    }
+
+    navigate("/produtos");
+  }
   return (
     <div className="home-page">
       <div className="home-container">
@@ -75,7 +85,7 @@ export default function Home() {
             </p>
 
             <div className="hero-actions">
-              <button className="btn-main" onClick={() => navigate("/produtos")}>
+              <button className="btn-main" onClick={handleProdutos}>
                 Ver produtos
               </button>
               <button className="btn-outline" onClick={() => navigate("/fidelidade")}>
